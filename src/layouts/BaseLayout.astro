@@ -1,0 +1,587 @@
+---
+import { ViewTransitions } from 'astro:transitions'
+import ContactWizard from '../components/ContactWizard.vue'
+import PostHog from '../components/posthog.astro'
+import '../styles/global.css'
+
+interface Props {
+    title: string
+    description?: string
+}
+
+const {
+    title,
+    description = 'Tvorím moderné a rýchle webové stránky, ktoré vám pomôžu získať viac zákazníkov a odlíšiť sa od konkurencie.',
+} = Astro.props
+---
+
+<!doctype html>
+<html lang="sk">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title} | Portfolio Dávid Zliechovec</title>
+        <meta name="description" content={description} />
+        <PostHog />
+        <ViewTransitions />
+    </head>
+    <body class="selection:bg-emerald-500/30">
+        <nav class="fixed top-0 left-0 w-full z-50 px-4 sm:px-6 py-4">
+            <div
+                class="max-w-7xl mx-auto flex justify-between items-center transition-all duration-300 glass-card p-3! sm:p-4! rounded-2xl! border-white/5"
+            >
+                <a
+                    href="/"
+                    class="text-base sm:text-xl font-extrabold tracking-tighter text-emerald-400 uppercase leading-tight"
+                >
+                    Dávid <span class="text-slate-200">Zliechovec</span>
+                </a>
+
+                <!-- Desktop nav links -->
+                <div class="hidden md:flex gap-8 items-center list-none">
+                    <li>
+                        <a
+                            href="/"
+                            class="text-sm font-medium hover:text-emerald-400 transition-colors"
+                            >O mne</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="/#prace"
+                            class="text-sm font-medium hover:text-emerald-400 transition-colors"
+                            >Projekty</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="/gastro"
+                            class="text-sm font-medium hover:text-emerald-400 transition-colors"
+                            >Gastro</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="/barber"
+                            class="text-sm font-medium hover:text-emerald-400 transition-colors"
+                            >Barber</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="/#kontakt"
+                            class="btn-primary !py-2 !px-4 text-xs">Kontakt</a
+                        >
+                    </li>
+                </div>
+
+                <!-- Mobile hamburger button -->
+                <button
+                    id="nav-toggle"
+                    class="md:hidden relative w-9 h-9 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center transition-all duration-300 hover:border-emerald-500/40 hover:bg-emerald-500/5"
+                    aria-label="Toggle menu"
+                >
+                    <!-- Hamburger icon -->
+                    <svg
+                        id="ham-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="text-pearl transition-all duration-300"
+                    >
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                    <!-- Close icon -->
+                    <svg
+                        id="close-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="text-pearl absolute transition-all duration-300 opacity-0 scale-75"
+                    >
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Full-Screen Overlay Menu -->
+        <div
+            id="mobile-menu"
+            class="md:hidden fixed inset-0 z-40 bg-obsidian/95 backdrop-blur-xl flex flex-col items-center justify-center gap-2 transition-all duration-400 opacity-0 pointer-events-none"
+        >
+            <!-- Background glow -->
+            <div
+                class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-emerald-500/5 blur-[120px] rounded-full pointer-events-none"
+            >
+            </div>
+
+            <nav class="flex flex-col items-center gap-2 relative z-10">
+                <a
+                    href="/"
+                    class="mobile-nav-link group flex items-center gap-3 py-4 px-6"
+                >
+                    <span
+                        class="text-3xl font-extrabold text-pearl tracking-tight group-hover:text-emerald-400 transition-colors duration-200"
+                        >O mne</span
+                    >
+                </a>
+                <a
+                    href="/#prace"
+                    class="mobile-nav-link group flex items-center gap-3 py-4 px-6"
+                >
+                    <span
+                        class="text-3xl font-extrabold text-pearl tracking-tight group-hover:text-emerald-400 transition-colors duration-200"
+                        >Projekty</span
+                    >
+                </a>
+                <a
+                    href="/gastro"
+                    class="mobile-nav-link group flex items-center gap-3 py-4 px-6"
+                >
+                    <span
+                        class="text-3xl font-extrabold text-pearl tracking-tight group-hover:text-emerald-400 transition-colors duration-200"
+                        >Gastro</span
+                    >
+                </a>
+                <a
+                    href="/barber"
+                    class="mobile-nav-link group flex items-center gap-3 py-4 px-6"
+                >
+                    <span
+                        class="text-3xl font-extrabold text-pearl tracking-tight group-hover:text-emerald-400 transition-colors duration-200"
+                        >Barber</span
+                    >
+                </a>
+            </nav>
+
+            <div class="mt-6 relative z-10">
+                <a
+                    href="/#kontakt"
+                    class="btn-primary text-base px-10!">Kontakt</a
+                >
+            </div>
+
+            <p
+                class="absolute bottom-10 text-silver/30 text-xs tracking-widest uppercase font-bold"
+            >
+                Dávid Zliechovec
+            </p>
+        </div>
+
+        <!-- Custom Cursor Elements -->
+        <div
+            class="custom-cursor flex items-center justify-center"
+            id="cursor-dot"
+        >
+            <div class="cursor-dot-inner"></div>
+            <svg
+                class="cursor-arrow"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+        </div>
+        <div class="custom-cursor-halo" id="cursor-halo"></div>
+
+        <main class="pt-24 min-h-screen">
+            <slot />
+        </main>
+
+        <ContactWizard client:only="vue" />
+
+        <footer
+            id="kontakt"
+            class="bg-charcoal border-t border-white/5 py-16 lg:py-20 px-5 sm:px-6 relative overflow-hidden"
+        >
+            <!-- Decoration -->
+            <div
+                class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent"
+            >
+            </div>
+
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div
+                    class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16 lg:mb-20"
+                >
+                    <div class="fade-in-up">
+                        <h2
+                            class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-pearl leading-[1.1] tracking-tight mb-6"
+                        >
+                            Pripravený <br /><span
+                                class="text-emerald-500 italic"
+                                >zmodernizovať</span
+                            ><br /> váš podnik?
+                        </h2>
+                        <p
+                            class="text-silver/60 text-base md:text-lg font-medium max-w-lg leading-relaxed mb-8"
+                        >
+                            Máte projekt, ktorý potrebuje prémiovú tvár? Napíšte
+                            mi a spolu premeníme vašu víziu na digitálnu
+                            realitu.
+                        </p>
+
+                        <!-- Primary CTA -->
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button
+                                data-trigger-wizard="true"
+                                class="btn-primary cursor-pointer text-base px-8! py-4! text-center uppercase"
+                            >
+                                BEZPLATNÁ KONZULTÁCIA
+                            </button>
+                        </div>
+                    </div>
+
+                    <div
+                        class="grid grid-cols-2 gap-3 sm:gap-4 fade-in-up"
+                        style="transition-delay: 200ms;"
+                    >
+                        <!-- Email Card -->
+                        <a
+                            href="mailto:david.zliechovec@gmail.com"
+                            class="group p-5 bg-white/[0.02] border border-white/5 rounded-2xl transition-all duration-300 hover:bg-white/[0.05] hover:border-emerald-500/30"
+                        >
+                            <div
+                                class="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-500 mb-3 group-hover:scale-110 transition-transform"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    ><rect
+                                        width="20"
+                                        height="16"
+                                        x="2"
+                                        y="4"
+                                        rx="2"></rect><path
+                                        d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
+                                    ></path></svg
+                                >
+                            </div>
+                            <h3 class="text-pearl font-bold text-sm mb-1">
+                                Email
+                            </h3>
+                            <p
+                                class="text-silver/40 text-[10px] sm:text-xs truncate"
+                            >
+                                david.zliechovec@gmail.com
+                            </p>
+                        </a>
+
+                        <!-- WhatsApp Card -->
+                        <a
+                            href="https://wa.me/421903164540"
+                            target="_blank"
+                            class="group p-5 bg-white/[0.02] border border-white/5 rounded-2xl transition-all duration-300 hover:bg-white/[0.05] hover:border-emerald-500/30"
+                        >
+                            <div
+                                class="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-500 mb-3 group-hover:scale-110 transition-transform"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    ><path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                                    ></path></svg
+                                >
+                            </div>
+                            <h3 class="text-pearl font-bold text-sm mb-1">
+                                WhatsApp / Tel.
+                            </h3>
+                            <p
+                                class="text-silver/40 text-[10px] sm:text-xs truncate"
+                            >
+                                +421 903 164 540
+                            </p>
+                        </a>
+
+                        <!-- Instagram Card -->
+                        <a
+                            href="https://instagram.com/zlidavid"
+                            target="_blank"
+                            class="group p-5 bg-white/[0.02] border border-white/5 rounded-2xl transition-all duration-300 hover:bg-white/[0.05] hover:border-emerald-500/30"
+                        >
+                            <div
+                                class="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-500 mb-3 group-hover:scale-110 transition-transform"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    ><rect
+                                        width="20"
+                                        height="20"
+                                        x="2"
+                                        y="2"
+                                        rx="5"
+                                        ry="5"></rect><path
+                                        d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                                    ></path><line
+                                        x1="17.5"
+                                        y1="6.5"
+                                        x2="17.51"
+                                        y2="6.5"></line></svg
+                                >
+                            </div>
+                            <h3 class="text-pearl font-bold text-sm mb-1">
+                                Instagram
+                            </h3>
+                            <p
+                                class="text-silver/40 text-[10px] sm:text-xs truncate"
+                            >
+                                @zlidavid
+                            </p>
+                        </a>
+
+                        <!-- LinkedIn Card -->
+                        <a
+                            href="https://www.linkedin.com/in/d%C3%A1vid-zliechovec-a9560a335"
+                            target="_blank"
+                            class="group p-5 bg-white/[0.02] border border-white/5 rounded-2xl transition-all duration-300 hover:bg-white/[0.05] hover:border-emerald-500/30"
+                        >
+                            <div
+                                class="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-500 mb-3 group-hover:scale-110 transition-transform"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    ><path
+                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                                    ></path><rect
+                                        width="4"
+                                        height="12"
+                                        x="2"
+                                        y="9"></rect><circle cx="4" cy="4" r="2"
+                                    ></circle></svg
+                                >
+                            </div>
+                            <h3 class="text-pearl font-bold text-sm mb-1">
+                                LinkedIn
+                            </h3>
+                            <p
+                                class="text-silver/40 text-[10px] sm:text-xs truncate"
+                            >
+                                Dávid Zliechovec
+                            </p>
+                        </a>
+                    </div>
+                </div>
+
+                <div
+                    class="flex flex-col md:flex-row justify-between items-center gap-6 pt-10 border-t border-white/5"
+                >
+                    <p
+                        class="text-silver/30 text-[10px] uppercase font-bold tracking-[0.2em] max-w-md text-center md:text-left leading-relaxed"
+                    >
+                        Služby zahŕňajú SEO optimalizáciu. Pozície v Google sú
+                        závislé od algoritmov tretích strán. <br />
+                        &copy; {new Date().getFullYear()} Dávid Zliechovec. Všetky
+                        práva vyhradené.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <span
+                            class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"
+                        ></span>
+                        <span
+                            class="text-silver/60 text-[10px] uppercase font-bold tracking-widest"
+                            >Dostupný pre nové projekty</span
+                        >
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // Improved High-Performance Custom Cursor
+            let cursorDot: HTMLElement | null
+            let cursorHalo: HTMLElement | null
+            let mouseX = 0
+            let mouseY = 0
+            let dotX = 0
+            let dotY = 0
+            let haloX = 0
+            let haloY = 0
+
+            const updateCursor = () => {
+                // Smooth interpolation for halo (trailing effect)
+                dotX = mouseX
+                dotY = mouseY
+                haloX += (mouseX - haloX) * 0.15
+                haloY += (mouseY - haloY) * 0.15
+
+                if (cursorDot) {
+                    cursorDot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0) translate3d(-50%, -50%, 0)`
+                }
+                if (cursorHalo) {
+                    cursorHalo.style.transform = `translate3d(${haloX}px, ${haloY}px, 0) translate3d(-50%, -50%, 0)`
+                }
+
+                requestAnimationFrame(updateCursor)
+            }
+
+            const onMouseMove = (e: MouseEvent) => {
+                mouseX = e.clientX
+                mouseY = e.clientY
+            }
+
+            const initCursor = () => {
+                cursorDot = document.getElementById('cursor-dot')
+                cursorHalo = document.getElementById('cursor-halo')
+
+                document.addEventListener('mousemove', onMouseMove)
+
+                // Reactive listeners for all clickable elements
+                const addHoverListeners = () => {
+                    const interactives = document.querySelectorAll(
+                        'a, button, [role="button"], .btn-primary, .btn-secondary',
+                    )
+                    interactives.forEach((el) => {
+                        el.addEventListener('mouseenter', () =>
+                            document.documentElement.classList.add(
+                                'cursor-active',
+                            ),
+                        )
+                        el.addEventListener('mouseleave', () =>
+                            document.documentElement.classList.remove(
+                                'cursor-active',
+                            ),
+                        )
+                    })
+                }
+
+                addHoverListeners()
+
+                // Re-run listeners on content changes (if any)
+                const observer = new MutationObserver(addHoverListeners)
+                observer.observe(document.body, {
+                    childList: true,
+                    subtree: true,
+                })
+
+                requestAnimationFrame(updateCursor)
+            }
+
+            // Scroll Reveal Logic
+            const observerOptions = {
+                threshold: 0.1,
+            }
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible')
+                    }
+                })
+            }, observerOptions)
+
+            // Hamburger menu toggle
+            const initNavToggle = () => {
+                const toggle = document.getElementById('nav-toggle')
+                const menu = document.getElementById('mobile-menu')
+                const hamIcon = document.getElementById('ham-icon')
+                const closeIcon = document.getElementById('close-icon')
+                if (!toggle || !menu) return
+
+                let open = false
+
+                const openMenu = () => {
+                    open = true
+                    menu.style.opacity = '1'
+                    menu.style.pointerEvents = 'auto'
+                    document.body.style.overflow = 'hidden'
+                    if (hamIcon) {
+                        hamIcon.style.opacity = '0'
+                        hamIcon.style.transform = 'scale(0.5) rotate(90deg)'
+                    }
+                    if (closeIcon) {
+                        closeIcon.style.opacity = '1'
+                        closeIcon.style.transform = 'scale(1) rotate(0deg)'
+                    }
+                }
+
+                const closeMenu = () => {
+                    open = false
+                    menu.style.opacity = '0'
+                    menu.style.pointerEvents = 'none'
+                    document.body.style.overflow = ''
+                    if (hamIcon) {
+                        hamIcon.style.opacity = '1'
+                        hamIcon.style.transform = ''
+                    }
+                    if (closeIcon) {
+                        closeIcon.style.opacity = '0'
+                        closeIcon.style.transform = 'scale(0.75) rotate(-90deg)'
+                    }
+                }
+
+                toggle.addEventListener('click', () =>
+                    open ? closeMenu() : openMenu(),
+                )
+
+                // Close menu on link click
+                menu.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', closeMenu)
+                })
+            }
+
+            document.addEventListener('astro:page-load', () => {
+                initCursor()
+                initNavToggle()
+                const fadeElements = document.querySelectorAll('.fade-in-up')
+                fadeElements.forEach((el) => revealObserver.observe(el))
+            })
+        </script>
+    </body>
+</html>

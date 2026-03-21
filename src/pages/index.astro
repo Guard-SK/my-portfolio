@@ -1,0 +1,1360 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { Image } from 'astro:assets'
+import auroraDesktop from '../assets/aurora_desktop.jpg'
+import auroraMobile from '../assets/aurora_mobile.jpeg'
+import auroraLogo from '../assets/LogoAuroraConstruction.webp'
+import david from '../assets/david.jpeg'
+import barberDemo from '../assets/barber_demo.jpg'
+import restaurantDemo from '../assets/restaurant_demo.jpg'
+import hemisfera from '../assets/hemisfera.jpg'
+import medirex from '../assets/medirex.avif'
+import medirexLogo from '../assets/medirex_logo.png'
+import hemisferaLogo from '../assets/hemisfera_logo.png'
+import epcm from '../assets/epcm.avif'
+import epcmLogo from '../assets/epcm_logo.jpg'
+---
+
+<BaseLayout title="Webdeveloper Bratislava">
+	<!-- Morphing Sticky Experience -->
+	<section class="relative bg-grain pb-12 lg:pt-12">
+		<!-- Contained Background Effects -->
+		<div class="absolute inset-0 overflow-hidden pointer-events-none">
+			<!-- Animated Background Elements -->
+			<div class="absolute inset-0 performance-mesh opacity-40"></div>
+
+			<!-- Custom Gradient Glows -->
+			<div
+				class="absolute top-1/4 -left-20 w-96 h-96 bg-emerald-400/20 blur-[120px] rounded-full"
+			>
+			</div>
+			<div
+				class="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-emerald-600/15 blur-[150px] rounded-full"
+			>
+			</div>
+		</div>
+
+		<div
+			class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 lg:gap-20 items-start relative px-5 sm:px-6"
+		>
+			<!-- Left Column: Sequential Content -->
+			<div
+				class="relative z-10 pb-6 lg:pb-20 space-y-16 lg:space-y-[35vh]"
+			>
+				<!-- Hero Part -->
+				<div
+					id="hero-trigger"
+					class="min-h-0 lg:min-h-[70vh] flex flex-col justify-center items-center lg:items-start text-center lg:text-left py-16 lg:py-0 lg:pt-0 will-change-[opacity,transform]"
+				>
+					<!-- Avatar + Badge row -->
+					<div class="flex items-center gap-3 mb-5 lg:mb-8">
+						<!-- Avatar (mobile only) -->
+						<div
+							class="lg:hidden w-10 h-10 rounded-full overflow-hidden border-2 border-emerald-500/40 shrink-0"
+						>
+							<Image
+								src={david}
+								alt="Dávid"
+								class="w-full h-full object-cover"
+							/>
+						</div>
+						<div
+							class="flex flex-col gap-1 items-center lg:items-start"
+						>
+							<div
+								class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/5 w-fit"
+							>
+								<span
+									class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"
+								></span>
+								<span
+									class="text-[10px] uppercase font-bold tracking-widest text-emerald-400"
+									>Prijímam nové projekty</span
+								>
+							</div>
+							<p
+								class="lg:hidden text-xs text-silver/60 font-medium pl-1"
+							>
+								Dávid Zliechovec
+							</p>
+						</div>
+					</div>
+
+					<h1
+						class="text-[3.6rem] leading-[1.08] sm:text-6xl md:text-7xl lg:text-8xl font-extrabold mb-4 lg:mb-8 tracking-tight text-pearl"
+					>
+						Bleskové <span class="text-emerald-500 text-glow italic"
+							>dizajnové</span
+						><br />webstránky
+					</h1>
+
+					<!-- Short version on mobile, full on desktop -->
+					<p
+						class="lg:hidden text-silver text-sm mb-6 leading-relaxed font-medium max-w-xs"
+					>
+						Prémiové weby za zlomok ceny vel'kých agentúr - rýchlo,
+						krásne, efektívne.
+					</p>
+					<p
+						class="hidden lg:block text-silver text-lg md:text-xl mb-12 max-w-xl leading-relaxed font-medium"
+					>
+						Tvorím weby, ktoré sú nielen technologicky dokonalé, ale
+						aj krásne. Prinášam vám prémiovú kvalitu za zlomok ceny
+						veľkých agentúr a mením návštevníkov na vašich verných
+						zákazníkov.
+					</p>
+
+					<div
+						class="flex flex-row gap-3 mb-6 lg:mb-0 w-full max-w-xs lg:max-w-none mx-auto lg:mx-0"
+					>
+						<a
+							href="#kontakt"
+							class="btn-primary flex-1 text-center text-sm px-4!"
+						>
+							Konzultácia
+						</a>
+						<a
+							href="#prace"
+							class="btn-secondary flex-1 text-center text-sm px-4!"
+							>Moja práca</a
+						>
+					</div>
+
+					<!-- Mobile trust badges -->
+					<div
+						class="lg:hidden flex items-center justify-center gap-4"
+					>
+						<div class="flex items-center gap-1.5">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="13"
+								height="13"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2.5"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								class="text-emerald-400 shrink-0"
+								><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"
+								></polyline><polyline points="16 7 22 7 22 13"
+								></polyline></svg
+							>
+							<span
+								class="text-[10px] uppercase font-bold tracking-wider text-silver/60"
+								>Top 3 Google</span
+							>
+						</div>
+						<div class="w-px h-3 bg-white/10"></div>
+						<div class="flex items-center gap-1.5">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="13"
+								height="13"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2.5"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								class="text-emerald-400 shrink-0"
+								><circle cx="12" cy="12" r="10"
+								></circle><polyline points="12 6 12 12 16 14"
+								></polyline></svg
+							>
+							<span
+								class="text-[10px] uppercase font-bold tracking-wider text-silver/60"
+								>Rýchly web</span
+							>
+						</div>
+						<div class="w-px h-3 bg-white/10"></div>
+						<div class="flex items-center gap-1.5">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="13"
+								height="13"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2.5"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								class="text-emerald-400 shrink-0"
+								><path
+									d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"
+								></path></svg
+							>
+							<span
+								class="text-[10px] uppercase font-bold tracking-wider text-silver/60"
+								>Krásny dizajn</span
+							>
+						</div>
+					</div>
+
+					<!-- Desktop stats (original) -->
+					<div
+						class="hidden lg:grid mt-16 grid-cols-2 sm:grid-cols-3 gap-6 lg:gap-8 opacity-60"
+					>
+						<div class="group">
+							<div
+								class="text-pearl font-bold text-xl mb-1 group-hover:text-emerald-400 transition-colors"
+							>
+								Premium
+							</div>
+							<div
+								class="text-[10px] uppercase tracking-widest font-bold text-silver/60"
+							>
+								Vizuálna kvalita
+							</div>
+						</div>
+						<div class="group">
+							<div
+								class="text-pearl font-bold text-xl mb-1 group-hover:text-emerald-400 transition-colors"
+							>
+								Bleskové
+							</div>
+							<div
+								class="text-[10px] uppercase tracking-widest font-bold text-silver/60"
+							>
+								Rýchlosť načít.
+							</div>
+						</div>
+						<div class="group hidden sm:block">
+							<div
+								class="text-pearl font-bold text-xl mb-1 group-hover:text-emerald-400 transition-colors"
+							>
+								Lacné
+							</div>
+							<div
+								class="text-[10px] uppercase tracking-widest font-bold text-silver/60"
+							>
+								VS veľké agentúry
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Case Study Part -->
+				<div
+					id="case-study-trigger"
+					class="min-h-0 lg:min-h-[70vh] flex flex-col justify-center lg:opacity-0 will-change-[opacity,transform]"
+				>
+					<span
+						id="prace"
+						class="text-emerald-400 font-bold uppercase tracking-widest text-sm mb-4 block"
+						>Prípadová Štúdia</span
+					>
+					<h2
+						class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 lg:mb-8 leading-tight text-pearl"
+					>
+						Ako som pomohol stavebnej firme ovládnuť Google.
+					</h2>
+					<p class="text-silver text-lg mb-8 leading-relaxed">
+						Pre firmu <strong class="text-pearl"
+							>Aurora Construction</strong
+						> som vybudoval technický základ, ktorý ich vystrelil na prvé
+						miesta v Google na kľúčové slovo <span
+							class="text-emerald-400 font-semibold"
+							>"Hrubá stavba Bratislava"</span
+						>.
+					</p>
+
+					<div class="grid grid-cols-2 gap-4 lg:gap-6 mb-6 lg:mb-8">
+						<div class="glass-card p-6!">
+							<div
+								class="text-3xl font-extrabold text-emerald-400 mb-1"
+							>
+								0.9s
+							</div>
+							<div
+								class="text-xs uppercase tracking-wider text-silver/90 font-bold"
+							>
+								Čas načítania
+							</div>
+						</div>
+						<div class="glass-card p-6!">
+							<div
+								class="text-3xl font-extrabold text-emerald-400 mb-1"
+							>
+								100%
+							</div>
+							<div
+								class="text-xs uppercase tracking-wider text-silver/90 font-bold"
+							>
+								Mobile Score
+							</div>
+						</div>
+						<div class="glass-card p-6!">
+							<div
+								class="text-3xl font-extrabold text-emerald-400 mb-1"
+							>
+								Áno
+							</div>
+							<div
+								class="text-xs uppercase tracking-wider text-silver/90 font-bold"
+							>
+								Získava dopyty
+							</div>
+						</div>
+						<div class="glass-card p-6!">
+							<div
+								class="text-3xl font-extrabold text-emerald-400 mb-1"
+							>
+								Top 3
+							</div>
+							<div
+								class="text-xs uppercase tracking-wider text-silver/90 font-bold"
+							>
+								Pozície v Google
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Right Column: Sticky Visuals -->
+			<div
+				class="sticky top-24 h-[calc(100vh-6rem)] hidden lg:flex items-center justify-center"
+			>
+				<div
+					id="experience-visual"
+					class="relative w-full max-w-xl mx-auto py-12 transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-transform"
+				>
+					<!-- Main Mockup Container -->
+					<div
+						id="hero-parallax"
+						class="relative z-20 group"
+						data-depth="0.1"
+					>
+						<div
+							id="main-screen"
+							class="w-full aspect-video bg-obsidian rounded-3xl overflow-hidden border border-white/30 shadow-[0_30px_60px_rgba(0,0,0,0.8)] relative transition-all duration-700"
+						>
+							<Image
+								src={auroraDesktop}
+								alt="Aurora Construction Project"
+								class="w-full h-full object-cover opacity-90 transition-opacity duration-700"
+							/>
+							<div
+								class="absolute inset-0 bg-gradient-to-tr from-obsidian/40 to-transparent"
+							>
+							</div>
+						</div>
+
+						<!-- Floating Badges (Fade out on Case Study) -->
+						<div
+							id="badge-growth"
+							class="absolute -top-10 -left-10 glass-card p-4! border-emerald-500/30 shadow-2xl animate-float transition-all duration-500"
+							style="animation-delay: 1s;"
+							data-depth="0.2"
+						>
+							<div class="flex items-center gap-3">
+								<div
+									class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 border border-emerald-500/20"
+								>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="22"
+										height="22"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2.5"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										><polyline
+											points="22 7 13.5 15.5 8.5 10.5 2 17"
+										></polyline><polyline
+											points="16 7 22 7 22 13"
+										></polyline></svg
+									>
+								</div>
+								<div
+									class="text-[10px] uppercase font-bold text-silver tracking-wider"
+								>
+									Viac<br />zákazníkov
+								</div>
+							</div>
+						</div>
+
+						<div
+							id="badge-ui"
+							class="absolute -bottom-10 -right-10 glass-card p-4! border-emerald-500/30 shadow-2xl animate-float transition-all duration-500"
+							style="animation-delay: 2.5s;"
+							data-depth="0.15"
+						>
+							<div class="flex items-center gap-3">
+								<div
+									class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 border border-emerald-500/20"
+								>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="20"
+										height="20"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2.5"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										><path
+											d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"
+										></path><path d="M5 3v4"></path><path
+											d="M19 17v4"></path><path d="M3 5h4"
+										></path><path d="M17 19h4"></path></svg
+									>
+								</div>
+								<div
+									class="text-[10px] uppercase font-bold text-silver tracking-wider"
+								>
+									Moderné<br />UI / UX
+								</div>
+							</div>
+						</div>
+
+						<div
+							id="badge-premium"
+							class="absolute -top-6 -right-6 glass-card p-4! border-white/10 shadow-2xl animate-float transition-all duration-500"
+							style="animation-delay: 4s;"
+							data-depth="0.1"
+						>
+							<div class="flex items-center gap-3">
+								<div
+									class="text-pearl font-bold text-xs tracking-tight uppercase opacity-80"
+								>
+									Prémiová stránka
+								</div>
+							</div>
+						</div>
+
+						<!-- Mobile Mockup (Slides in on Case Study) -->
+						<div
+							id="mobile-mockup"
+							class="absolute -bottom-10 -left-12 w-56 aspect-1119/2048 bg-obsidian rounded-4xl p-3 border-4 border-white/20 shadow-2xl z-20 translate-x-10 opacity-0 pointer-events-none will-change-[opacity,transform]"
+						>
+							<div
+								class="w-full h-full bg-charcoal rounded-3xl overflow-hidden"
+							>
+								<Image
+									src={auroraMobile}
+									alt="Aurora Construction Mobile"
+									class="w-full h-full object-cover"
+								/>
+							</div>
+						</div>
+
+						<!-- Browser Controls (Show on Case Study) -->
+						<div
+							id="browser-dots"
+							class="absolute top-4 left-4 flex gap-1.5 z-20 opacity-0 transition-opacity duration-500"
+						>
+							<div class="w-2 h-2 rounded-full bg-red-500/40">
+							</div>
+							<div class="w-2 h-2 rounded-full bg-yellow-500/40">
+							</div>
+							<div class="w-2 h-2 rounded-full bg-emerald-500/40">
+							</div>
+						</div>
+					</div>
+
+					<!-- Decorative Background Circles -->
+					<div
+						class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-white/5 rounded-full pointer-events-none scale-90 opacity-20"
+						data-depth="0.05"
+					>
+					</div>
+				</div>
+			</div>
+
+			<!-- Mobile Visual Fallback (Visible only on small screens) -->
+			<div class="lg:hidden relative mt-4 mb-4">
+				<div
+					class="w-full aspect-video bg-charcoal rounded-2xl overflow-hidden border border-white/5 shadow-2xl"
+				>
+					<Image
+						src={auroraDesktop}
+						alt="Aurora Desktop"
+						class="w-full h-full object-cover"
+					/>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Portfolio Works -->
+	<section
+		class="py-16 lg:py-32 px-5 sm:px-6 relative z-10 border-y border-white/5 bg-charcoal/20"
+	>
+		<div class="max-w-7xl mx-auto">
+			<div
+				class="flex flex-col md:flex-row justify-between items-start mb-10 lg:mb-16 gap-4 lg:gap-6"
+			>
+				<div class="fade-in-up">
+					<span
+						class="text-emerald-400 font-bold uppercase tracking-widest text-sm mb-4 block"
+						>Portfólio</span
+					>
+					<h2
+						class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-pearl tracking-tight"
+					>
+						Moje <span class="text-emerald-500 italic"
+							>projekty</span
+						>
+					</h2>
+				</div>
+				<p
+					class="text-silver text-base md:text-lg max-w-md fade-in-up"
+					style="transition-delay: 100ms;"
+				>
+					Výber mojich prác od vývoja pre veľké spoločnosti v agentúre
+					až po rýchle, prémiové weby pre lokálne biznisy.
+				</p>
+			</div>
+
+			<div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+				<!-- Project 1: Aurora Construction -->
+				<a
+					href="https://www.auroraconstruction.sk"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="group block h-full fade-in-up"
+					style="transition-delay: 200ms;"
+				>
+					<div
+						class="glass-card p-5! md:p-6! border-white/5 transition-all duration-500 group-hover:border-emerald-500/30 group-hover:bg-white/5 relative overflow-hidden flex flex-col h-full"
+					>
+						<div
+							class="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-obsidian relative mb-6 md:mb-8 border border-white/5 shrink-0"
+						>
+							<Image
+								src={auroraDesktop}
+								alt="Aurora Construction"
+								class="w-full h-full object-cover object-top opacity-90 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100"
+							/>
+							<div
+								class="absolute bottom-3 left-3 bg-obsidian/60 backdrop-blur-md rounded-full p-1 border border-white/10 shadow-2xl transition-transform duration-500 group-hover:-translate-y-1 flex items-center justify-center"
+							>
+								<div
+									class="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden shrink-0 flex items-center justify-center p-1"
+								>
+									<Image
+										src={auroraLogo}
+										alt="Aurora Construction Logo"
+										class="w-full h-full object-contain"
+									/>
+								</div>
+							</div>
+						</div>
+
+						<div
+							class="flex justify-between items-start px-2 relative z-10 flex-grow"
+						>
+							<div class="pr-4">
+								<h3
+									class="text-2xl font-extrabold text-pearl mb-1 group-hover:text-emerald-400 transition-colors tracking-tight"
+								>
+									Aurora Construction
+								</h3>
+								<p class="text-silver/80 text-sm font-medium">
+									Webstránka pre stavebnú firmu
+								</p>
+							</div>
+							<div
+								class="w-12 h-12 shrink-0 rounded-full border border-white/10 flex items-center justify-center text-silver group-hover:bg-emerald-400 group-hover:border-emerald-400 group-hover:text-obsidian transition-all duration-300 overflow-hidden relative"
+							>
+								<svg
+									class="absolute transition-transform duration-300 group-hover:translate-x-[200%] group-hover:-translate-y-[200%]"
+									xmlns="http://www.w3.org/2000/svg"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									><line x1="7" y1="17" x2="17" y2="7"
+									></line><polyline points="7 7 17 7 17 17"
+									></polyline></svg
+								>
+								<svg
+									class="absolute transition-transform duration-300 -translate-x-[200%] translate-y-[200%] group-hover:translate-x-0 group-hover:translate-y-0"
+									xmlns="http://www.w3.org/2000/svg"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									><line x1="7" y1="17" x2="17" y2="7"
+									></line><polyline points="7 7 17 7 17 17"
+									></polyline></svg
+								>
+							</div>
+						</div>
+					</div>
+				</a>
+
+				<!-- Project 2: EPCM Engineers -->
+				<a
+					href="https://www.epcm-engineers.com"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="group block h-full fade-in-up"
+					style="transition-delay: 300ms;"
+				>
+					<div
+						class="glass-card p-5! md:p-6! border-white/5 transition-all duration-500 group-hover:border-emerald-500/30 group-hover:bg-white/5 relative overflow-hidden flex flex-col h-full"
+					>
+						<div
+							class="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-obsidian relative mb-6 md:mb-8 border border-white/5 shrink-0"
+						>
+							<Image
+								src={epcm}
+								alt="EPCM Engineers"
+								class="w-full h-full object-cover object-top opacity-90 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100"
+							/>
+							<div
+								class="absolute bottom-3 left-3 bg-obsidian/60 backdrop-blur-md rounded-full p-1 border border-white/10 shadow-2xl transition-transform duration-500 group-hover:-translate-y-1 flex items-center justify-center"
+							>
+								<div
+									class="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden shrink-0 flex items-center justify-center p-1"
+								>
+									<Image
+										src={epcmLogo}
+										alt="EPCM Engineers Logo"
+										class="w-full h-full object-contain"
+									/>
+								</div>
+							</div>
+						</div>
+
+						<div
+							class="flex justify-between items-start px-2 relative z-10 flex-grow"
+						>
+							<div class="pr-4">
+								<h3
+									class="text-2xl font-extrabold text-pearl mb-1 group-hover:text-emerald-400 transition-colors tracking-tight"
+								>
+									EPCM Engineers
+								</h3>
+								<p class="text-silver/80 text-sm font-medium">
+									Webstránka pre inžiniersku spoločnosť
+								</p>
+							</div>
+							<div
+								class="w-12 h-12 shrink-0 rounded-full border border-white/10 flex items-center justify-center text-silver group-hover:bg-emerald-400 group-hover:border-emerald-400 group-hover:text-obsidian transition-all duration-300 overflow-hidden relative"
+							>
+								<svg
+									class="absolute transition-transform duration-300 group-hover:translate-x-[200%] group-hover:-translate-y-[200%]"
+									xmlns="http://www.w3.org/2000/svg"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									><line x1="7" y1="17" x2="17" y2="7"
+									></line><polyline points="7 7 17 7 17 17"
+									></polyline></svg
+								>
+								<svg
+									class="absolute transition-transform duration-300 -translate-x-[200%] translate-y-[200%] group-hover:translate-x-0 group-hover:translate-y-0"
+									xmlns="http://www.w3.org/2000/svg"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									><line x1="7" y1="17" x2="17" y2="7"
+									></line><polyline points="7 7 17 7 17 17"
+									></polyline></svg
+								>
+							</div>
+						</div>
+					</div>
+				</a>
+
+				<!-- Project 3: Medirex -->
+				<a
+					href="https://www.wezeo.com/projects/medirex"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="group block h-full fade-in-up"
+					style="transition-delay: 200ms;"
+				>
+					<div
+						class="glass-card p-5! md:p-6! border-white/5 transition-all duration-500 group-hover:border-emerald-500/30 group-hover:bg-white/5 relative overflow-hidden flex flex-col h-full"
+					>
+						<div
+							class="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-obsidian relative mb-6 md:mb-8 border border-white/5 shrink-0"
+						>
+							<Image
+								src={medirex}
+								alt="Medirex"
+								class="w-full h-full object-cover object-top opacity-90 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100"
+							/>
+							<div
+								class="absolute bottom-3 left-3 bg-obsidian/60 backdrop-blur-md rounded-full p-1 border border-white/10 shadow-2xl transition-transform duration-500 group-hover:-translate-y-1 flex items-center justify-center"
+							>
+								<div
+									class="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden bg-black shrink-0 flex items-center justify-center p-2"
+								>
+									<Image
+										src={medirexLogo}
+										alt="Medirex Logo"
+										class="w-full h-full object-contain"
+									/>
+								</div>
+							</div>
+						</div>
+
+						<div
+							class="flex justify-between items-start px-2 relative z-10 flex-grow"
+						>
+							<div class="pr-4">
+								<h3
+									class="text-2xl font-extrabold text-pearl mb-1 group-hover:text-emerald-400 transition-colors tracking-tight"
+								>
+									Medirex
+								</h3>
+								<p class="text-silver/80 text-sm font-medium">
+									Spolupráca na vývoji (WEZEO)
+								</p>
+							</div>
+							<div
+								class="w-12 h-12 shrink-0 rounded-full border border-white/10 flex items-center justify-center text-silver group-hover:bg-emerald-400 group-hover:border-emerald-400 group-hover:text-obsidian transition-all duration-300 overflow-hidden relative"
+							>
+								<svg
+									class="absolute transition-transform duration-300 group-hover:translate-x-[200%] group-hover:-translate-y-[200%]"
+									xmlns="http://www.w3.org/2000/svg"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									><line x1="7" y1="17" x2="17" y2="7"
+									></line><polyline points="7 7 17 7 17 17"
+									></polyline></svg
+								>
+								<svg
+									class="absolute transition-transform duration-300 -translate-x-[200%] translate-y-[200%] group-hover:translate-x-0 group-hover:translate-y-0"
+									xmlns="http://www.w3.org/2000/svg"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									><line x1="7" y1="17" x2="17" y2="7"
+									></line><polyline points="7 7 17 7 17 17"
+									></polyline></svg
+								>
+							</div>
+						</div>
+					</div>
+				</a>
+
+				<!-- Project 2: Hemisfera -->
+				<a
+					href="https://www.hemisfera.sk"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="group block h-full fade-in-up"
+					style="transition-delay: 300ms;"
+				>
+					<div
+						class="glass-card p-5! md:p-6! border-white/5 transition-all duration-500 group-hover:border-emerald-500/30 group-hover:bg-white/5 relative overflow-hidden flex flex-col h-full"
+					>
+						<div
+							class="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-obsidian relative mb-6 md:mb-8 border border-white/5 shrink-0"
+						>
+							<Image
+								src={hemisfera}
+								alt="Hemisfera"
+								class="w-full h-full object-cover object-top opacity-90 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100"
+							/>
+							<div
+								class="absolute bottom-3 left-3 bg-obsidian/60 backdrop-blur-md rounded-full p-1 border border-white/10 shadow-2xl transition-transform duration-500 group-hover:-translate-y-1 flex items-center justify-center"
+							>
+								<div
+									class="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden bg-white shrink-0"
+								>
+									<Image
+										src={hemisferaLogo}
+										alt="Hemisfera Logo"
+										class="w-full h-full object-cover"
+									/>
+								</div>
+							</div>
+						</div>
+						<div
+							class="flex justify-between items-start px-2 relative z-10 flex-grow"
+						>
+							<div class="pr-4">
+								<h3
+									class="text-2xl font-extrabold text-pearl mb-1 group-hover:text-emerald-400 transition-colors tracking-tight"
+								>
+									Hemisféra
+								</h3>
+								<p
+									class="text-silver/80 text-sm font-medium line-clamp-2"
+								>
+									Front-end checkout systému (WEZEO)
+								</p>
+							</div>
+							<div
+								class="w-12 h-12 shrink-0 rounded-full border border-white/10 flex items-center justify-center text-silver group-hover:bg-emerald-400 group-hover:border-emerald-400 group-hover:text-obsidian transition-all duration-300 overflow-hidden relative"
+							>
+								<svg
+									class="absolute transition-transform duration-300 group-hover:translate-x-[200%] group-hover:-translate-y-[200%]"
+									xmlns="http://www.w3.org/2000/svg"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									><line x1="7" y1="17" x2="17" y2="7"
+									></line><polyline points="7 7 17 7 17 17"
+									></polyline></svg
+								>
+								<svg
+									class="absolute transition-transform duration-300 -translate-x-[200%] translate-y-[200%] group-hover:translate-x-0 group-hover:translate-y-0"
+									xmlns="http://www.w3.org/2000/svg"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									><line x1="7" y1="17" x2="17" y2="7"
+									></line><polyline points="7 7 17 7 17 17"
+									></polyline></svg
+								>
+							</div>
+						</div>
+					</div>
+				</a>
+
+				<!-- Project 3: Barber Demo -->
+				<a
+					href="https://barbershop-demo-1.vercel.app"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="group block h-full fade-in-up"
+					style="transition-delay: 200ms;"
+				>
+					<div
+						class="glass-card p-5! md:p-6! border-white/5 transition-all duration-500 group-hover:border-emerald-500/30 group-hover:bg-white/5 relative overflow-hidden flex flex-col h-full"
+					>
+						<div
+							class="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-obsidian relative mb-6 md:mb-8 border border-white/5 shrink-0"
+						>
+							<Image
+								src={barberDemo}
+								alt="Barber Demo"
+								class="w-full h-full object-cover object-top opacity-90 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100"
+							/>
+						</div>
+						<div
+							class="flex justify-between items-start px-2 relative z-10 flex-grow"
+						>
+							<div class="pr-4">
+								<h3
+									class="text-2xl font-extrabold text-pearl mb-1 group-hover:text-emerald-400 transition-colors tracking-tight"
+								>
+									Barbershop Demo
+								</h3>
+								<div
+									class="inline-flex items-center gap-2 border border-emerald-500/20 bg-emerald-500/10 px-2 py-0.5 rounded text-[10px] text-emerald-400 font-bold uppercase tracking-wider mb-2"
+								>
+									Template projekt
+								</div>
+								<p class="text-silver/80 text-sm font-medium">
+									Ukážkový web pre holičstvá
+								</p>
+							</div>
+							<div
+								class="w-12 h-12 shrink-0 border border-emerald-500/20 bg-emerald-500/5 rounded-full flex items-center justify-center text-emerald-400 group-hover:bg-emerald-400 group-hover:border-emerald-400 group-hover:text-obsidian transition-all duration-300 overflow-hidden relative"
+							>
+								<svg
+									class="absolute transition-transform duration-300 group-hover:translate-x-[200%] group-hover:-translate-y-[200%]"
+									xmlns="http://www.w3.org/2000/svg"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									><line x1="7" y1="17" x2="17" y2="7"
+									></line><polyline points="7 7 17 7 17 17"
+									></polyline></svg
+								>
+								<svg
+									class="absolute transition-transform duration-300 -translate-x-[200%] translate-y-[200%] group-hover:translate-x-0 group-hover:translate-y-0"
+									xmlns="http://www.w3.org/2000/svg"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									><line x1="7" y1="17" x2="17" y2="7"
+									></line><polyline points="7 7 17 7 17 17"
+									></polyline></svg
+								>
+							</div>
+						</div>
+					</div>
+				</a>
+
+				<!-- Project 4: Gastro Demo -->
+				<a
+					href="https://restaurant-demo-blue-ten.vercel.app/sk/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="group block h-full fade-in-up"
+					style="transition-delay: 300ms;"
+				>
+					<div
+						class="glass-card p-5! md:p-6! border-white/5 transition-all duration-500 group-hover:border-emerald-500/30 group-hover:bg-white/5 relative overflow-hidden flex flex-col h-full"
+					>
+						<div
+							class="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-obsidian relative mb-6 md:mb-8 border border-white/5 shrink-0"
+						>
+							<Image
+								src={restaurantDemo}
+								alt="Restaurant Demo"
+								class="w-full h-full object-cover object-top opacity-90 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100"
+							/>
+						</div>
+						<div
+							class="flex justify-between items-start px-2 relative z-10 flex-grow"
+						>
+							<div class="pr-4">
+								<h3
+									class="text-2xl font-extrabold text-pearl mb-1 group-hover:text-emerald-400 transition-colors tracking-tight"
+								>
+									Gastro Demo
+								</h3>
+								<div
+									class="inline-flex items-center gap-2 border border-emerald-500/20 bg-emerald-500/10 px-2 py-0.5 rounded text-[10px] text-emerald-400 font-bold uppercase tracking-wider mb-2"
+								>
+									Template projekt
+								</div>
+								<p class="text-silver/80 text-sm font-medium">
+									Ukážkový web pre reštaurácie
+								</p>
+							</div>
+							<div
+								class="w-12 h-12 shrink-0 border border-emerald-500/20 bg-emerald-500/5 rounded-full flex items-center justify-center text-emerald-400 group-hover:bg-emerald-400 group-hover:border-emerald-400 group-hover:text-obsidian transition-all duration-300 overflow-hidden relative"
+							>
+								<svg
+									class="absolute transition-transform duration-300 group-hover:translate-x-[200%] group-hover:-translate-y-[200%]"
+									xmlns="http://www.w3.org/2000/svg"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									><line x1="7" y1="17" x2="17" y2="7"
+									></line><polyline points="7 7 17 7 17 17"
+									></polyline></svg
+								>
+								<svg
+									class="absolute transition-transform duration-300 -translate-x-[200%] translate-y-[200%] group-hover:translate-x-0 group-hover:translate-y-0"
+									xmlns="http://www.w3.org/2000/svg"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									><line x1="7" y1="17" x2="17" y2="7"
+									></line><polyline points="7 7 17 7 17 17"
+									></polyline></svg
+								>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- About Me -->
+	<section
+		class="py-16 lg:py-32 px-5 sm:px-6 relative overflow-hidden bg-charcoal/30"
+	>
+		<div
+			class="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-emerald-500/5 blur-[150px] rounded-full pointer-events-none"
+		>
+		</div>
+
+		<div
+			class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-24"
+		>
+			<div class="w-full md:w-1/2 relative fade-in-up">
+				<div class="relative z-10 w-full aspect-[4/5] max-w-md mx-auto">
+					<div
+						class="absolute inset-0 border-2 border-emerald-500/20 rounded-[3rem] -rotate-3 translate-x-4 translate-y-4"
+					>
+					</div>
+					<div
+						class="absolute inset-0 border-2 border-white/5 rounded-[3rem] rotate-2 -translate-x-2 -translate-y-2"
+					>
+					</div>
+					<div
+						class="w-full h-full rounded-[3rem] overflow-hidden shadow-2xl relative"
+					>
+						<Image
+							src={david}
+							alt="David - Freelance Developer"
+							class="w-full h-full object-cover"
+						/>
+						<div
+							class="absolute inset-0 bg-gradient-to-t from-obsidian/60 to-transparent"
+						>
+						</div>
+					</div>
+				</div>
+				<div
+					class="absolute -bottom-6 right-0 sm:-right-4 md:right-12 z-20 glass-card p-6! py-4! border-emerald-500/20"
+				>
+					<div
+						class="text-emerald-400 font-bold text-xl text-center tracking-tight"
+					>
+						1.5+ Roka
+					</div>
+					<div
+						class="text-[10px] text-silver/60 font-bold uppercase tracking-[0.2em] text-center"
+					>
+						v agentúre WEZEO
+					</div>
+				</div>
+			</div>
+
+			<div
+				class="w-full md:w-1/2 fade-in-up"
+				style="transition-delay: 200ms;"
+			>
+				<h2
+					class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 lg:mb-8 leading-tight text-pearl"
+				>
+					Ahoj, volám sa<br /><span class="text-emerald-500 italic"
+						>Dávid</span
+					>
+				</h2>
+
+				<div class="space-y-6 text-silver leading-relaxed text-lg">
+					<p>
+						Som študent posledného ročníka v Bratislave a momentálne
+						si plním sen - šetrím si na štúdium v Holandsku. Do
+						vašich projektov prinášam <strong class="text-pearl"
+							>technické štandardy z profesionálneho sveta.</strong
+						>
+					</p>
+
+					<p>
+						Svoje skúsenosti som <strong class="text-pearl"
+							>1.5 roka</strong
+						> budoval v poprednej slovenskej agentúre <strong
+							class="text-pearl">WEZEO</strong
+						>. Pracoval som na projektoch ako <a
+							href="https://www.medirex.sk"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="text-emerald-400 font-semibold italic hover:text-emerald-300 transition-colors"
+							>medirex.sk</a
+						> či checkout systéme pre <a
+							href="https://www.hemisfera.sk"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="text-emerald-400 font-semibold italic hover:text-emerald-300 transition-colors"
+							>hemisfera.sk</a
+						>.
+					</p>
+
+					<p>
+						Dnes tieto skúsenosti vkladám do vašich projektov,
+						pričom si zachovávam kvalitu veľkej agentúry s
+						flexibilitou a cenou freelancera. Mojím cieľom je
+						vytvoriť riešenie, na ktoré budeme obaja hrdí. Vy
+						získate web svetovej úrovne a ja silný prírastok do
+						svojho portfólia.
+					</p>
+				</div>
+
+				<div class="mt-12 flex items-center gap-6">
+					<div class="flex flex-col">
+						<span
+							class="text-pearl font-extrabold text-2xl tracking-tighter"
+							>Dávid</span
+						>
+						<span
+							class="text-[10px] uppercase text-emerald-500 font-black tracking-[0.3em]"
+							>Freelance Dev</span
+						>
+					</div>
+					<div class="h-10 w-px bg-white/10"></div>
+					<p
+						class="text-sm text-silver/60 italic max-w-[220px] leading-snug"
+					>
+						"Spokojný zákazník je najlepšia reklama"
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Routing Cards -->
+	<section class="py-16 lg:py-32 px-5 sm:px-6 relative overflow-hidden">
+		<div class="max-w-7xl mx-auto relative z-10">
+			<div class="text-center mb-12 md:mb-20 fade-in-up">
+				<h2
+					class="text-3xl sm:text-4xl md:text-6xl font-extrabold text-pearl tracking-tight mb-4"
+				>
+					Moje <span class="text-emerald-500 italic"
+						>Špecializácie</span
+					>
+				</h2>
+			</div>
+
+			<div class="grid md:grid-cols-2 gap-6 md:gap-10">
+				<!-- Gastro Card -->
+				<a
+					href="/gastro"
+					class="group relative overflow-hidden rounded-[2.5rem] aspect-[14/9] sm:aspect-[16/9] md:aspect-[4/3] flex items-end p-8 sm:p-10 md:p-14 border border-white/5 transition-all duration-500 hover:border-emerald-500/30 shadow-2xl"
+				>
+					<div
+						class="absolute inset-0 bg-obsidian/70 z-10 transition-colors group-hover:bg-obsidian/40"
+					>
+					</div>
+					<img
+						src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1470&auto=format&fit=crop"
+						class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+						alt="Gastro"
+					/>
+
+					<div class="relative z-20">
+						<h3
+							class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-pearl group-hover:text-emerald-400 transition-colors tracking-tight"
+						>
+							Gastro
+						</h3>
+						<p
+							class="text-silver/80 text-sm sm:text-base md:text-xl mb-8 font-medium"
+						>
+							Premeňte náhodných návštevníkov na verných hostí.
+						</p>
+						<span
+							class="btn-primary py-2.5! px-6! text-sm md:text-base"
+							>Preskúmať &rarr;</span
+						>
+					</div>
+				</a>
+
+				<!-- Barber Card -->
+				<a
+					href="/barber"
+					class="group relative overflow-hidden rounded-[2.5rem] aspect-[14/9] sm:aspect-[16/9] md:aspect-[4/3] flex items-end p-8 sm:p-10 md:p-14 border border-white/5 transition-all duration-500 hover:border-emerald-500/30 shadow-2xl"
+				>
+					<div
+						class="absolute inset-0 bg-obsidian/70 z-10 transition-colors group-hover:bg-obsidian/40"
+					>
+					</div>
+					<img
+						src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1470&auto=format&fit=crop"
+						class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+						alt="Barber"
+					/>
+
+					<div class="relative z-20">
+						<h3
+							class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-pearl group-hover:text-emerald-400 transition-colors tracking-tight"
+						>
+							Barber
+						</h3>
+						<p
+							class="text-silver/80 text-sm sm:text-base md:text-xl mb-8 font-medium"
+						>
+							Váš web by mal vyzerať rovnako dobre ako vaše
+							strihy.
+						</p>
+						<span
+							class="btn-primary py-2.5! px-6! text-sm md:text-base"
+							>Preskúmať &rarr;</span
+						>
+					</div>
+				</a>
+			</div>
+		</div>
+	</section>
+</BaseLayout>
+
+<script>
+	// Custom Scroll Morphing & Sequential Fading Logic
+	const initMorph = () => {
+		// Only run the sticky animation on desktop (lg breakpoint = 1024px)
+		if (window.innerWidth < 1024) return
+		const heroTrigger = document.getElementById('hero-trigger')
+		const caseStudyTrigger = document.getElementById('case-study-trigger')
+		const badgeUi = document.getElementById('badge-ui')
+		const badgeGrowth = document.getElementById('badge-growth')
+		const badgePremium = document.getElementById('badge-premium')
+		const mobileMockup = document.getElementById('mobile-mockup')
+		const mainScreen = document.getElementById('main-screen')
+		const experienceVisual = document.getElementById('experience-visual')
+
+		if (!heroTrigger || !caseStudyTrigger || !experienceVisual) return
+
+		const handleScroll = () => {
+			const scrollY = window.scrollY
+			const sectionTop =
+				experienceVisual.closest('section')?.offsetTop || 0
+			const relativeScroll = scrollY - sectionTop
+
+			// 1. Threshold-based Scaling (1.2 -> 1.0)
+			// Stays big (1.2) until Case Study transition threshold (500)
+			if (relativeScroll > 500) {
+				experienceVisual.style.transform = 'scale(1.0)'
+			} else {
+				experienceVisual.style.transform = 'scale(1.2)'
+			}
+
+			// 2. Sequential Text Fading
+			// Hero Fade
+			const heroFadeStart = 100
+			const heroFadeEnd = 300
+			const heroOpacity =
+				1 -
+				Math.min(
+					Math.max(
+						(relativeScroll - heroFadeStart) /
+							(heroFadeEnd - heroFadeStart),
+						0,
+					),
+					1,
+				)
+			heroTrigger.style.opacity = heroOpacity.toString()
+			heroTrigger.style.pointerEvents =
+				heroOpacity < 0.1 ? 'none' : 'auto'
+
+			if (badgeUi) badgeUi.style.opacity = heroOpacity.toString()
+			if (badgeGrowth) badgeGrowth.style.opacity = heroOpacity.toString()
+			if (badgePremium)
+				badgePremium.style.opacity = heroOpacity.toString()
+
+			// Case Study Fade
+			const caseFadeStart = 500
+			const caseFadeEnd = 800
+			const caseOpacity = Math.min(
+				Math.max(
+					(relativeScroll - caseFadeStart) /
+						(caseFadeEnd - caseFadeStart),
+					0,
+				),
+				1,
+			)
+			caseStudyTrigger.style.opacity = caseOpacity.toString()
+			caseStudyTrigger.style.pointerEvents =
+				caseOpacity < 0.1 ? 'none' : 'auto'
+
+			// Morph Visuals
+			if (mobileMockup) {
+				mobileMockup.style.opacity = caseOpacity.toString()
+				// Slide: 10px -> 0px
+				const slideX = 10 - caseOpacity * 10
+				mobileMockup.style.transform = `translateX(${slideX}px)`
+				mobileMockup.style.pointerEvents =
+					caseOpacity < 0.1 ? 'none' : 'auto'
+			}
+
+			if (mainScreen) {
+				const borderAlpha = 0.3 + caseOpacity * 0.2
+				mainScreen.style.borderColor = `rgba(255, 255, 255, ${borderAlpha})`
+				mainScreen.style.boxShadow = `0 20px 50px rgba(0,0,0,0.8)`
+			}
+		}
+
+		window.addEventListener(
+			'scroll',
+			() => {
+				requestAnimationFrame(handleScroll)
+			},
+			{ passive: true },
+		)
+		handleScroll()
+	}
+
+	// Mouse Parallax Logic
+	const initParallax = () => {
+		const hero = document.getElementById('hero-parallax')
+		const layers = hero?.querySelectorAll('[data-depth]')
+
+		document.addEventListener('mousemove', (e) => {
+			if (!hero || !layers) return
+
+			const x = (window.innerWidth / 2 - e.pageX) / 40
+			const y = (window.innerHeight / 2 - e.pageY) / 40
+
+			layers.forEach((layer) => {
+				const depth = parseFloat(
+					layer.getAttribute('data-depth') || '0',
+				)
+				const moveX = x * depth
+				const moveY = y * depth
+				// Combine parallax with sticky transform if needed,
+				// but here we just need a sub-wrapper to not fight with scaling
+				const visual = layer as HTMLElement
+				visual.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`
+			})
+		})
+	}
+
+	// Smooth Scroll Logic
+	const initSmoothScroll = () => {
+		document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+			anchor.addEventListener('click', (e) => {
+				e.preventDefault()
+				const targetId = (
+					e.currentTarget as HTMLAnchorElement
+				).getAttribute('href')
+				const target = document.querySelector(targetId || '')
+				target?.scrollIntoView({ behavior: 'smooth' })
+			})
+		})
+	}
+
+	document.addEventListener('astro:page-load', () => {
+		initMorph()
+		initParallax()
+		initSmoothScroll()
+	})
+</script>

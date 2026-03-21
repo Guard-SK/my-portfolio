@@ -1,0 +1,819 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+---
+
+<BaseLayout
+    title="Gastro riešenia | Dávid Zliechovec"
+    description="Digitálne riešenia pre moderné gastro. Bleskovo rýchle stránky pre reštaurácie s QR menu a viacjazyčnosťou."
+>
+    <!-- Hero Section -->
+    <section
+        class="relative pb-12 lg:pt-12 px-6 overflow-hidden min-h-[90vh] flex items-center"
+    >
+        <!-- Background Effects -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div
+                class="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-emerald-500/10 blur-[120px] rounded-full"
+            >
+            </div>
+            <div
+                class="absolute bottom-1/4 -left-20 w-[400px] h-[400px] bg-emerald-600/10 blur-[100px] rounded-full"
+            >
+            </div>
+        </div>
+
+        <div
+            class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-16 items-center relative z-10"
+        >
+            <div class="fade-in-up">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 w-fit mb-6"
+                >
+                    <span
+                        class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"
+                    ></span>
+                    <span
+                        class="text-xs uppercase font-bold tracking-widest text-emerald-400"
+                        >Digitálne riešenia pre moderné gastro</span
+                    >
+                </div>
+
+                <h1
+                    class="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8 leading-tight text-pearl tracking-tight"
+                >
+                    Web, ktorý predáva a šetrí váš čas. <br /><span
+                        class="text-emerald-400 italic"
+                        >Bez zbytočných provízií.</span
+                    >
+                </h1>
+                <p
+                    class="text-silver text-lg md:text-xl mb-10 leading-relaxed max-w-xl font-medium"
+                >
+                    Bleskovo rýchle stránky pre reštaurácie. S QR menu na stoly
+                    a viacjazyčnosťou už v základe. Možnosť rozšírenia o
+                    rezervácie či vlastný systém na donášku.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a
+                        href="https://restaurant-demo-blue-ten.vercel.app/sk/"
+                        target="_blank"
+                        class="btn-primary flex justify-center items-center gap-2 text-base sm:text-lg px-6 sm:px-8 py-4 shadow-[0_0_40px_rgba(16,185,129,0.3)] hover:shadow-[0_0_60px_rgba(16,185,129,0.5)] transition-shadow leading-tight text-center"
+                    >
+                        Pozrieť Demo reštauráciu
+                    </a>
+                    <a
+                        href="#cennik"
+                        class="btn-secondary flex justify-center items-center text-base sm:text-lg px-6 sm:px-8 py-4 leading-tight text-center"
+                        >Cenník služieb</a
+                    >
+                </div>
+            </div>
+
+            <div class="relative fade-in-up" style="transition-delay: 200ms;">
+                <div
+                    class="relative glass-card !p-2 !rounded-[2.5rem] border-emerald-500/30 lg:rotate-2 hover:rotate-0 transition-transform duration-700 shadow-2xl"
+                >
+                    <a
+                        href="https://restaurant-demo-blue-ten.vercel.app/sk/"
+                        target="_blank"
+                        class="block aspect-[4/3] bg-obsidian rounded-[2rem] overflow-hidden border border-white/10 group relative"
+                    >
+                        <img
+                            src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=1470&auto=format&fit=crop"
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+                            alt="Restaurant Demo Preview"
+                        />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-obsidian/20 to-transparent"
+                        >
+                        </div>
+
+                        <div
+                            class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        >
+                            <div
+                                class="bg-emerald-500 text-obsidian font-bold px-6 py-3 rounded-full flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+                            >
+                                Prejsť na Demo <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="18"
+                                    height="18"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    ><line x1="5" y1="12" x2="19" y2="12"
+                                    ></line><polyline points="12 5 19 12 12 19"
+                                    ></polyline></svg
+                                >
+                            </div>
+                        </div>
+
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div
+                                    class="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,1)]"
+                                >
+                                </div>
+                                <div
+                                    class="text-sm font-bold text-emerald-400 uppercase tracking-widest"
+                                >
+                                    Live Demo
+                                </div>
+                            </div>
+                            <h3 class="text-2xl font-bold text-pearl">
+                                Interaktívne menu & dizajn
+                            </h3>
+                        </div>
+                    </a>
+                </div>
+
+                <div
+                    class="absolute -top-8 -left-8 glass-card p-5 border-emerald-500/30 shadow-2xl animate-float z-20"
+                >
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 border border-emerald-500/20"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><path d="M12 2v20"></path><path
+                                    d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                                ></path></svg
+                            >
+                        </div>
+                        <div>
+                            <div
+                                class="text-[10px] uppercase font-bold text-silver tracking-wider"
+                            >
+                                Bez provízií
+                            </div>
+                            <div class="text-pearl font-bold">
+                                100% Zisk pre vás
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem & Solution Block -->
+    <section class="py-24 px-6 bg-obsidian relative border-y border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-pearl mb-6">
+                    Čo v gastre funguje a čo vás brzdí?
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+                <!-- Card 1 -->
+                <div
+                    class="glass-card p-8 bg-white/5 border-emerald-500/20 shadow-[0_4px_24px_rgba(0,0,0,0.6)] hover:border-emerald-500/40 hover:bg-white/10 transition-all duration-300 group fade-in-up"
+                >
+                    <div class="mb-6 pb-6 border-b border-white/10">
+                        <div
+                            class="text-rose-400 text-sm font-bold uppercase tracking-wider mb-2 flex items-center gap-2"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><line x1="18" y1="6" x2="6" y2="18"
+                                ></line><line x1="6" y1="6" x2="18" y2="18"
+                                ></line></svg
+                            >
+                            Problém
+                        </div>
+                        <p
+                            class="text-silver/80 text-lg group-hover:text-silver transition-colors"
+                        >
+                            Zákazníci lúštia vaše staré PDF menu v mobile.
+                        </p>
+                    </div>
+                    <div>
+                        <div
+                            class="text-emerald-400 text-sm font-bold uppercase tracking-wider mb-2 flex items-center gap-2"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><polyline points="20 6 9 17 4 12"
+                                ></polyline></svg
+                            >
+                            Riešenie
+                        </div>
+                        <p class="text-pearl font-bold text-xl leading-snug">
+                            Bleskovo rýchly, interaktívny digitálny lístok.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="glass-card p-8 bg-white/5 border-emerald-500/20 shadow-[0_4px_24px_rgba(0,0,0,0.6)] hover:border-emerald-500/40 hover:bg-white/10 transition-all duration-300 group fade-in-up"
+                    style="transition-delay: 100ms;"
+                >
+                    <div class="mb-6 pb-6 border-b border-white/10">
+                        <div
+                            class="text-rose-400 text-sm font-bold uppercase tracking-wider mb-2 flex items-center gap-2"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><line x1="18" y1="6" x2="6" y2="18"
+                                ></line><line x1="6" y1="6" x2="18" y2="18"
+                                ></line></svg
+                            >
+                            Problém
+                        </div>
+                        <p
+                            class="text-silver/80 text-lg group-hover:text-silver transition-colors"
+                        >
+                            Zmena ceny steaku znamená volať ITčkárovi.
+                        </p>
+                    </div>
+                    <div>
+                        <div
+                            class="text-emerald-400 text-sm font-bold uppercase tracking-wider mb-2 flex items-center gap-2"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><polyline points="20 6 9 17 4 12"
+                                ></polyline></svg
+                            >
+                            Riešenie
+                        </div>
+                        <p class="text-pearl font-bold text-xl leading-snug">
+                            Denné menu, ceny a jedlá zmeníte sami z mobilu za 10
+                            sekúnd.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="glass-card p-8 bg-white/5 border-emerald-500/20 shadow-[0_4px_24px_rgba(0,0,0,0.6)] hover:border-emerald-500/40 hover:bg-white/10 transition-all duration-300 group fade-in-up"
+                    style="transition-delay: 200ms;"
+                >
+                    <div class="mb-6 pb-6 border-b border-white/10">
+                        <div
+                            class="text-rose-400 text-sm font-bold uppercase tracking-wider mb-2 flex items-center gap-2"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><line x1="18" y1="6" x2="6" y2="18"
+                                ></line><line x1="6" y1="6" x2="18" y2="18"
+                                ></line></svg
+                            >
+                            Problém
+                        </div>
+                        <p
+                            class="text-silver/80 text-lg group-hover:text-silver transition-colors"
+                        >
+                            Zahraniční hostia nerozumejú ponuke.
+                        </p>
+                    </div>
+                    <div>
+                        <div
+                            class="text-emerald-400 text-sm font-bold uppercase tracking-wider mb-2 flex items-center gap-2"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><polyline points="20 6 9 17 4 12"
+                                ></polyline></svg
+                            >
+                            Riešenie
+                        </div>
+                        <p class="text-pearl font-bold text-xl leading-snug">
+                            Viacjazyčný web (napr. SK/EN) máte u mňa už v
+                            základnom balíku.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div
+                    class="glass-card p-8 bg-white/5 border-emerald-500/20 shadow-[0_4px_24px_rgba(0,0,0,0.6)] hover:border-emerald-500/40 hover:bg-white/10 transition-all duration-300 group fade-in-up"
+                    style="transition-delay: 300ms;"
+                >
+                    <div class="mb-6 pb-6 border-b border-white/10">
+                        <div
+                            class="text-rose-400 text-sm font-bold uppercase tracking-wider mb-2 flex items-center gap-2"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><line x1="18" y1="6" x2="6" y2="18"
+                                ></line><line x1="6" y1="6" x2="18" y2="18"
+                                ></line></svg
+                            >
+                            Problém
+                        </div>
+                        <p
+                            class="text-silver/80 text-lg group-hover:text-silver transition-colors"
+                        >
+                            Tlačíte špinavé papierové lístky na stoly.
+                        </p>
+                    </div>
+                    <div>
+                        <div
+                            class="text-emerald-400 text-sm font-bold uppercase tracking-wider mb-2 flex items-center gap-2"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><polyline points="20 6 9 17 4 12"
+                                ></polyline></svg
+                            >
+                            Riešenie
+                        </div>
+                        <p class="text-pearl font-bold text-xl leading-snug">
+                            Elegantné QR kódy, ktoré odkazujú vždy na aktuálne
+                            menu.
+                        </p>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div
+                    class="glass-card p-8 bg-white/5 border-emerald-500/20 shadow-[0_4px_24px_rgba(0,0,0,0.6)] hover:border-emerald-500/40 hover:bg-white/10 transition-all duration-300 group fade-in-up md:col-span-2 md:w-[calc(50%-0.75rem)] lg:w-[calc(50%-1rem)] mx-auto w-full"
+                    style="transition-delay: 400ms;"
+                >
+                    <div class="mb-6 pb-6 border-b border-white/10">
+                        <div
+                            class="text-rose-400 text-sm font-bold uppercase tracking-wider mb-2 flex items-center gap-2"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><line x1="18" y1="6" x2="6" y2="18"
+                                ></line><line x1="6" y1="6" x2="18" y2="18"
+                                ></line></svg
+                            >
+                            Problém
+                        </div>
+                        <p
+                            class="text-silver/80 text-lg group-hover:text-silver transition-colors"
+                        >
+                            Máte skvelé jedlo, ale hladní zákazníci v okolí vás
+                            na Google Mapách nevidia.
+                        </p>
+                    </div>
+                    <div>
+                        <div
+                            class="text-emerald-400 text-sm font-bold uppercase tracking-wider mb-2 flex items-center gap-2"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><polyline points="20 6 9 17 4 12"
+                                ></polyline></svg
+                            >
+                            Riešenie
+                        </div>
+                        <p class="text-pearl font-bold text-xl leading-snug">
+                            Nastavím vám Firemný profil na Google ktorý prepojím
+                            s bleskovým webom. Keď niekto hľadá jedlo, nájde váš
+                            podnik medzi prvými.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="cennik" class="pt-24 px-6 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-20 fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-pearl mb-6">
+                    Férové ceny. Platíte len za to, čo reálne využijete.
+                </h2>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-stretch">
+                <!-- Main Package -->
+                <div class="lg:col-span-5 relative fade-in-up h-full">
+                    <div
+                        class="absolute -inset-1 bg-gradient-to-r from-emerald-500/40 to-emerald-400/10 rounded-3xl blur-xl opacity-50"
+                    >
+                    </div>
+                    <div
+                        class="glass-card p-8 sm:p-10 border-emerald-500/30 relative bg-obsidian/80 backdrop-blur-xl h-full flex flex-col"
+                    >
+                        <div
+                            class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full text-xs font-bold uppercase tracking-wider mb-6 w-fit"
+                        >
+                            Základ každej reštaurácie
+                        </div>
+                        <h3 class="text-3xl font-extrabold text-pearl mb-2">
+                            Štandardný balík
+                        </h3>
+                        <div
+                            class="flex flex-wrap items-baseline gap-x-2 gap-y-1 mb-8"
+                        >
+                            <span
+                                class="text-4xl font-extrabold text-emerald-400 whitespace-nowrap"
+                                >250 €</span
+                            >
+                            <span class="text-xl text-emerald-400/70 font-bold"
+                                >–</span
+                            >
+                            <span
+                                class="text-4xl font-extrabold text-emerald-400 whitespace-nowrap"
+                                >450 €</span
+                            >
+                            <span class="text-silver/60 text-sm ml-1"
+                                >(25/75 pred po)</span
+                            >
+                        </div>
+
+                        <ul class="space-y-5 mb-10 grow">
+                            <li class="flex items-center gap-4">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="14"
+                                        height="14"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="3"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="text-emerald-400"
+                                        ><polyline points="20 6 9 17 4 12"
+                                        ></polyline></svg
+                                    >
+                                </div>
+                                <span
+                                    class="text-pearl font-medium text-lg leading-snug"
+                                    >Kompletný moderný web na mieru</span
+                                >
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="14"
+                                        height="14"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="3"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="text-emerald-400"
+                                        ><polyline points="20 6 9 17 4 12"
+                                        ></polyline></svg
+                                    >
+                                </div>
+                                <span
+                                    class="text-pearl font-medium text-lg leading-snug"
+                                    >Redakčný systém (CMS) pre celé menu</span
+                                >
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="14"
+                                        height="14"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="3"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="text-emerald-400"
+                                        ><polyline points="20 6 9 17 4 12"
+                                        ></polyline></svg
+                                    >
+                                </div>
+                                <span
+                                    class="text-pearl font-medium text-lg leading-snug"
+                                    >QR kódy pre vaše stoly</span
+                                >
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="14"
+                                        height="14"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="3"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="text-emerald-400"
+                                        ><polyline points="20 6 9 17 4 12"
+                                        ></polyline></svg
+                                    >
+                                </div>
+                                <span
+                                    class="text-pearl font-medium text-lg leading-snug"
+                                    >Viacjazyčnosť (napr. SK + EN)</span
+                                >
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="14"
+                                        height="14"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="3"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="text-emerald-400"
+                                        ><polyline points="20 6 9 17 4 12"
+                                        ></polyline></svg
+                                    >
+                                </div>
+                                <span
+                                    class="text-pearl font-medium text-lg leading-snug"
+                                    >Nastavenie Google Firemného profilu</span
+                                >
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="14"
+                                        height="14"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="3"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="text-emerald-400"
+                                        ><polyline points="20 6 9 17 4 12"
+                                        ></polyline></svg
+                                    >
+                                </div>
+                                <span
+                                    class="text-pearl font-medium text-lg leading-snug"
+                                    >Lokálne vyhľadávanie (SEO)</span
+                                >
+                            </li>
+                        </ul>
+
+                        <a
+                            href="#kontakt"
+                            class="btn-primary w-full text-center py-4 text-lg"
+                            >Mám záujem</a
+                        >
+                    </div>
+                </div>
+
+                <!-- Add-ons -->
+                <div
+                    class="lg:col-span-7 flex flex-col gap-6 fade-in-up h-full justify-center"
+                    style="transition-delay: 200ms;"
+                >
+                    <!-- Add-on 1 -->
+                    <div
+                        class="glass-card p-6 sm:p-8 border-white/5 hover:border-emerald-500/30 transition-colors"
+                    >
+                        <div
+                            class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4"
+                        >
+                            <div>
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div
+                                        class="w-12 h-12 rounded-xl bg-slate-800/80 flex items-center justify-center text-pearl border border-white/10 shrink-0"
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            ><rect
+                                                x="3"
+                                                y="4"
+                                                width="18"
+                                                height="18"
+                                                rx="2"
+                                                ry="2"></rect><line
+                                                x1="16"
+                                                y1="2"
+                                                x2="16"
+                                                y2="6"></line><line
+                                                x1="8"
+                                                y1="2"
+                                                x2="8"
+                                                y2="6"></line><line
+                                                x1="3"
+                                                y1="10"
+                                                x2="21"
+                                                y2="10"></line></svg
+                                        >
+                                    </div>
+                                    <h4 class="text-2xl font-bold text-pearl">
+                                        Rezervácie stolov
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="text-left sm:text-right">
+                                <div
+                                    class="text-2xl font-bold text-emerald-400"
+                                >
+                                    + 100 € až 150 €
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-silver text-lg leading-relaxed sm:pl-15">
+                            Zákazníci sa rezervujú online, vy vidíte prehľadný
+                            kalendár. Koniec zvoniacim telefónom.
+                        </p>
+                    </div>
+
+                    <!-- Add-on 2 -->
+                    <div
+                        class="glass-card p-6 sm:p-8 border-white/5 hover:border-emerald-500/30 transition-colors"
+                    >
+                        <div
+                            class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4"
+                        >
+                            <div>
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div
+                                        class="w-12 h-12 rounded-xl bg-slate-800/80 flex items-center justify-center text-pearl border border-white/10 shrink-0"
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            ><path
+                                                d="M5 21a2 2 0 0 1-2-2V7.5L8 3h8l5 4.5V19a2 2 0 0 1-2 2"
+                                            ></path><polyline
+                                                points="3 7.5 21 7.5"
+                                            ></polyline><line
+                                                x1="15"
+                                                y1="12"
+                                                x2="9"
+                                                y2="12"></line></svg
+                                        >
+                                    </div>
+                                    <h4 class="text-2xl font-bold text-pearl">
+                                        Vlastný objednávkový systém
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="text-left sm:text-right">
+                                <div
+                                    class="text-2xl font-bold text-emerald-400"
+                                >
+                                    + 150 € až 250 €
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-silver text-lg leading-relaxed sm:pl-15">
+                            Systém na osobný odber alebo vašu donášku. Bez 30%
+                            provízií pre tretie strany. Plná kontrola nad
+                            ziskom.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Maintenance Section -->
+    <section
+        class="pt-12 pb-32 px-6 bg-obsidian relative border-t border-white/5 overflow-hidden"
+    >
+        <div class="absolute inset-0 pointer-events-none">
+            <div
+                class="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-emerald-500/5 to-transparent"
+            >
+            </div>
+        </div>
+
+        <div
+            class="max-w-3xl mx-auto text-center relative z-10 fade-in-up glass-card p-10 lg:p-14 border-emerald-500/20 bg-charcoal/50"
+        >
+            <h2 class="text-4xl md:text-5xl font-extrabold text-pearl mb-8">
+                Bezstarostná prevádzka
+            </h2>
+            <p class="text-silver/90 text-xl leading-relaxed">
+                Nenechám vás v tom samých. Za férových <strong
+                    class="text-emerald-400 font-bold border-b-2 border-emerald-500/30"
+                    >12 € mesačne</strong
+                > sa postarám o prémiový hosting, beh redakčného systému, technické
+                aktualizácie a predĺženie domény. Vy len varíte, techniku riešim ja.
+            </p>
+        </div>
+    </section>
+</BaseLayout>
