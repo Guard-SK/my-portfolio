@@ -1,5 +1,5 @@
 <template>
-  <Teleport to="body">
+  <Teleport to="body" v-if="isMounted">
     <Transition name="fade">
       <div v-if="isOpen" class="fixed inset-0 z-100 flex flex-col bg-obsidian overflow-hidden">
         <!-- Background Glows -->
@@ -171,6 +171,7 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 
+const isMounted = ref(false)
 const isOpen = ref(false)
 const currentStep = ref(1) // Start with 0 (Intro)
 const currentFlow = ref(null) // 'A', 'B', 'C'
@@ -394,6 +395,7 @@ const startWizard = () => {
 }
 
 onMounted(() => {
+  isMounted.value = true
   window.addEventListener('click', handleGlobalClick)
   window.addEventListener('keydown', handleKeyDown)
 })
