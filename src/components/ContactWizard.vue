@@ -19,8 +19,13 @@
           </div>
 
           <!-- Progress bar -->
-          <div class="absolute left-1/2 -translate-x-1/2 w-32 sm:w-48 h-1 bg-white/5 rounded-full overflow-hidden">
-            <div class="h-full bg-emerald-500 transition-all duration-700 ease-out" :style="{ width: `${progress}%` }"></div>
+          <div class="absolute left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+            <div class="w-32 sm:w-48 h-1 bg-white/5 rounded-full overflow-hidden">
+              <div class="h-full bg-emerald-500 transition-all duration-700 ease-out" :style="{ width: `${progress}%` }"></div>
+            </div>
+            <span class="text-[9px] text-emerald-500/40 uppercase font-bold tracking-widest h-3">
+              {{ progressMessage }}
+            </span>
           </div>
 
           <button @click="closeWizard" class="group w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-silver hover:text-pearl hover:bg-white/10 transition-all border border-white/5 cursor-pointer">
@@ -52,22 +57,22 @@
                 <!-- Step Titles -->
                 <h3 class="text-3xl sm:text-4xl font-extrabold text-pearl mb-10 tracking-tight text-center sm:text-left">
                   <template v-if="currentFlow === 'A'">
-                    <span v-if="currentStep === 2">Kde sa <span class="text-emerald-400 italic">stretneme?</span></span>
+                    <span v-if="currentStep === 2">Kde sa <span class="text-emerald-400">stretneme?</span></span>
                     <span v-else-if="currentStep === 3">Ktoré dni vám <span class="text-emerald-400">vyhovujú?</span></span>
                     <span v-else-if="currentStep === 4">S čím vám viem <span class="text-emerald-400">pomôcť?</span></span>
-                    <span v-else-if="currentStep === 5">Aké je vaše <span class="text-emerald-400">telefónne číslo?</span></span>
+                    <span v-else-if="currentStep === 5">{{ contactHeadline.prefix }} <span class="text-emerald-400">{{ contactHeadline.highlight }}</span></span>
                     <span v-else-if="currentStep === 6">Pripravené na <span class="text-emerald-400">odoslanie.</span></span>
                   </template>
                   <template v-else-if="currentFlow === 'B'">
-                    <span v-if="currentStep === 2">Kde si <span class="text-emerald-400 italic">zavoláme?</span></span>
+                    <span v-if="currentStep === 2">Kde si <span class="text-emerald-400">zavoláme?</span></span>
                     <span v-else-if="currentStep === 3">Kedy vám to <span class="text-emerald-400">najviac vyhovuje?</span></span>
                     <span v-else-if="currentStep === 4">Stručne opíšte <span class="text-emerald-400">vašu požiadavku</span></span>
-                    <span v-else-if="currentStep === 5">Aké je vaše <span class="text-emerald-400">číslo alebo mail?</span></span>
+                    <span v-else-if="currentStep === 5">{{ contactHeadline.prefix }} <span class="text-emerald-400">{{ contactHeadline.highlight }}</span></span>
                     <span v-else-if="currentStep === 6">Zhrnutie <span class="text-emerald-400">hovoru.</span></span>
                   </template>
                   <template v-else-if="currentFlow === 'C'">
-                    <span v-if="currentStep === 2">Platforma pre <span class="text-emerald-400 italic">písanie?</span></span>
-                    <span v-else-if="currentStep === 3">Kde vás <span class="text-emerald-400">zastihnem?</span></span>
+                    <span v-if="currentStep === 2">Platforma pre <span class="text-emerald-400">písanie?</span></span>
+                    <span v-else-if="currentStep === 3">{{ contactHeadline.prefix }} <span class="text-emerald-400">{{ contactHeadline.highlight }}</span></span>
                     <span v-else-if="currentStep === 4">S čím vám viem <span class="text-emerald-400">pomôcť?</span></span>
                     <span v-else-if="currentStep === 5">Zhrnutie <span class="text-emerald-400">správy.</span></span>
                   </template>
@@ -99,10 +104,19 @@
                       </button>
                     </div>
 
+                    <!-- Custom location input for step 2 -->
+                    <div v-if="currentStep === 2 && currentFlow === 'A'" class="mt-8 border-t border-white/5 pt-8">
+                      <div class="flex gap-2">
+                        <input v-model="customLocation" type="text" placeholder="Iné (zadajte miesto)..." class="grow bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-pearl focus:outline-none focus:border-emerald-500 transition-colors" @keyup.enter="if(customLocation) { formData.location = customLocation; nextStep() }" />
+                        <button @click="if(customLocation) { formData.location = customLocation; nextStep() }" class="cursor-pointer px-8 py-4 bg-white/10 text-pearl rounded-2xl hover:bg-emerald-500 hover:text-obsidian font-bold transition-all disabled:opacity-30" :disabled="!customLocation">OK</button>
+                      </div>
+                    </div>
+
                     <!-- Custom time input for step 3 -->
                     <div v-if="currentStep === 3" class="mt-8 border-t border-white/5 pt-8">
+                      <p class="text-emerald-500/60 text-sm italic mb-4">Rád sa Vám prispôsobím na akýkolvek čas</p>
                       <div class="flex gap-2">
-                        <input v-model="customTime" type="text" placeholder="Iný termín..." class="grow bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-pearl focus:outline-none focus:border-emerald-500 transition-colors" @keyup.enter="if(customTime) { formData.timePreference = customTime; nextStep() }" />
+                        <input v-model="customTime" type="text" :placeholder="currentFlow === 'A' ? 'Mám presný čas na mysli...' : 'Iný termín...'" class="grow bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-pearl focus:outline-none focus:border-emerald-500 transition-colors" @keyup.enter="if(customTime) { formData.timePreference = customTime; nextStep() }" />
                         <button @click="if(customTime) { formData.timePreference = customTime; nextStep() }" class="cursor-pointer px-8 py-4 bg-white/10 text-pearl rounded-2xl hover:bg-emerald-500 hover:text-obsidian font-bold transition-all disabled:opacity-30" :disabled="!customTime">OK</button>
                       </div>
                     </div>
@@ -116,21 +130,44 @@
 
                   <!-- Input for contact -->
                   <div v-else-if="(currentFlow === 'A' && currentStep === 5) || (currentFlow === 'B' && currentStep === 5) || (currentFlow === 'C' && currentStep === 3)">
-                    <p class="text-silver/40 mb-4 text-sm font-medium">{{ currentFlow === 'A' ? 'Vaše číslo pre potvrdenie stretnutia.' : 'Kam vám môžem napísať alebo zavolať?' }}</p>
-                    <input v-model="formData.contact" type="text" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-5 text-pearl focus:outline-none focus:border-emerald-500 transition-colors mb-6 text-2xl font-bold tracking-tight" placeholder="e-mail alebo telefón" />
+                    <p class="text-silver/40 mb-4 text-sm font-medium">{{ contactTitle }}</p>
+                    <input v-model="formData.contact" type="text" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-5 text-pearl focus:outline-none focus:border-emerald-500 transition-colors mb-4 text-2xl font-bold tracking-tight" :placeholder="contactPlaceholder" />
+                    <p v-if="currentFlow === 'A'" class="text-emerald-500/60 text-xs italic mb-6">Poznámka: Preferujem internetovú komunikáciu (WhatsApp, e-mail) pred klasickými SMS.</p>
                     <button @click="nextStep" :disabled="!isContactValid" class="w-full py-5 bg-emerald-500 text-obsidian rounded-2xl font-bold text-lg hover:bg-emerald-400 transition-all disabled:opacity-50">Zhrnutie</button>
                   </div>
 
                   <!-- Summary steps -->
                   <div v-else-if="(currentStep === totalSteps[currentFlow])">
-                    <div class="bg-white/5 border border-white/10 rounded-3xl p-8 mb-8 space-y-4">
+                    <div class="bg-white/5 border border-white/10 rounded-3xl p-6 sm:p-8 mb-8 space-y-4">
+                      
+                      <!-- Type of communication -->
                       <div class="flex flex-col">
-                        <span class="text-silver/30 uppercase tracking-widest font-bold text-[10px] mb-1">Požiadavka</span>
+                        <span class="text-silver/30 uppercase tracking-widest font-bold text-[10px] mb-1">Typ komunikácie</span>
+                        <p class="text-pearl font-medium">{{ formData.type }}</p>
+                      </div>
+
+                      <!-- Location / Platform (Step 2) -->
+                      <div class="flex flex-col pt-4 border-t border-white/5" v-if="formData.location">
+                        <span class="text-silver/30 uppercase tracking-widest font-bold text-[10px] mb-1">{{ currentFlow === 'A' ? 'Miesto stretnutia' : 'Vybraná platforma' }}</span>
+                        <p class="text-pearl font-medium">{{ formData.location }}</p>
+                      </div>
+                      
+                      <!-- Time (Step 3 for A, B) -->
+                      <div class="flex flex-col pt-4 border-t border-white/5" v-if="formData.timePreference && currentFlow !== 'C'">
+                        <span class="text-silver/30 uppercase tracking-widest font-bold text-[10px] mb-1">Preferovaný čas</span>
+                        <p class="text-pearl font-medium">{{ formData.timePreference }}</p>
+                      </div>
+
+                      <!-- Request -->
+                      <div class="flex flex-col pt-4 border-t border-white/5">
+                        <span class="text-silver/30 uppercase tracking-widest font-bold text-[10px] mb-1">Vaša požiadavka</span>
                         <p class="text-pearl font-medium line-clamp-3">{{ formData.request }}</p>
                       </div>
+                      
+                      <!-- Contact -->
                       <div class="flex flex-col pt-4 border-t border-white/5">
                         <span class="text-silver/30 uppercase tracking-widest font-bold text-[10px] mb-1">Váš kontakt</span>
-                        <p class="text-2xl font-extrabold text-emerald-400">{{ formData.contact }}</p>
+                        <p class="text-2xl font-extrabold text-emerald-400 break-all">{{ formData.contact }}</p>
                       </div>
                     </div>
                     <button @click="submit" :disabled="isSubmitting" class="group cursor-pointer w-full py-5 bg-emerald-500 text-obsidian rounded-2xl font-extrabold text-xl hover:bg-emerald-400 transition-all disabled:opacity-50 flex justify-center items-center gap-3 shadow-lg shadow-emerald-500/20">
@@ -176,6 +213,7 @@ const isOpen = ref(false)
 const currentStep = ref(1) // Start with 0 (Intro)
 const currentFlow = ref(null) // 'A', 'B', 'C'
 const customTime = ref('')
+const customLocation = ref('')
 const isSubmitting = ref(false)
 const isSuccess = ref(false)
 
@@ -189,7 +227,7 @@ const formData = ref({
 
 // Grouping logic for many options (e.g. time slots)
 const groupedOptions = computed(() => {
-  if (currentStep.value === 3 && currentFlow.value === 'B') {
+  if (currentStep.value === 3 && (currentFlow.value === 'B' || currentFlow.value === 'A')) {
     const options = getOptions()
     const groups = {}
     options.forEach(opt => {
@@ -214,12 +252,73 @@ const progress = computed(() => {
   return Math.min(Math.round((currentStep.value / flowTotal) * 100), 100)
 })
 
+const progressMessage = computed(() => {
+  if (isSuccess.value) return 'Úspešne odoslané'
+  if (currentStep.value === 1) return 'Vyberte si cestu'
+  
+  if (!currentFlow.value) return ''
+  
+  const flowTotal = totalSteps[currentFlow.value]
+  if (currentStep.value === flowTotal) return 'Už stačí len potvrdiť'
+  if (currentStep.value === flowTotal - 1) return 'Posledné údaje'
+  
+  const p = progress.value
+  if (p < 30) return 'Už to skoro bude'
+  if (p < 60) return 'Ešte pár krokov'
+  return 'Už to skoro bude'
+})
+
+// Dynamic contact messaging
+const contactHeadline = computed(() => {
+  if (currentFlow.value === 'A') return { prefix: 'Kam sa vám', highlight: 'môžem ozvať?' }
+  const loc = formData.value.location
+  if (loc === 'WhatsApp' || loc === 'Klasicky cez hovor' || loc === 'SMS') return { prefix: 'Aké je vaše', highlight: 'číslo?' }
+  if (loc === 'Zoom/Meet' || loc === 'E-mail') return { prefix: 'Aký je váš', highlight: 'e-mail?' }
+  if (loc === 'Instagram') return { prefix: 'Váš Instagram', highlight: 'profil?' }
+  return { prefix: 'Kam sa vám', highlight: 'môžem ozvať?' }
+})
+
+const contactTitle = computed(() => {
+  if (currentFlow.value === 'A') return 'Kam sa vám môžem ozvať?'
+  const loc = formData.value.location
+  if (loc === 'WhatsApp') return 'Aké telefónne číslo používate na WhatsAppe?'
+  if (loc === 'Klasicky cez hovor') return 'Na aké číslo vám môžem zavolať?'
+  if (loc === 'SMS') return 'Na aké číslo vám môžem napísať SMS?'
+  if (loc === 'Zoom/Meet') return 'Na aký e-mail vám pošlem pozvánku?'
+  if (loc === 'E-mail') return 'Na aký e-mail vám môžem napísať?'
+  if (loc === 'Instagram') return 'Aký je váš Instagramový profil (začína @)?'
+  return 'Kam sa vám môžem ozvať?'
+})
+
+const contactPlaceholder = computed(() => {
+  if (currentFlow.value === 'A') return 'e-mail alebo telefón'
+  const loc = formData.value.location
+  if (loc === 'WhatsApp' || loc === 'Klasicky cez hovor' || loc === 'SMS') return '+421 9XX XXX XXX'
+  if (loc === 'Zoom/Meet' || loc === 'E-mail') return 'váš@email.sk'
+  if (loc === 'Instagram') return '@vas_profil'
+  return 'e-mail alebo telefón'
+})
+
 // Validation
 const isContactValid = computed(() => {
   const val = formData.value.contact.trim()
   if (!val) return false
-  // Basic check: email or phone (contains @ or is mostly digits/spaces/plus)
-  const isEmail = val.includes('@') && val.includes('.')
+  
+  const loc = formData.value.location
+  if (currentFlow.value !== 'A' && loc) {
+    if (loc === 'WhatsApp' || loc === 'Klasicky cez hovor' || loc === 'SMS') {
+      return val.replace(/[\s\+]/g, '').length >= 9 && /^[0-9\s\+]+$/.test(val)
+    }
+    if (loc === 'Zoom/Meet' || loc === 'E-mail') {
+      return val.includes('@') && val.includes('.') && val.length > 5
+    }
+    if (loc === 'Instagram') {
+      return val.length >= 2
+    }
+  }
+  
+  // Basic fallback
+  const isEmail = val.includes('@') && val.includes('.') && val.length > 5
   const isPhone = val.replace(/[\s\+]/g, '').length >= 9 && /^[0-9\s\+]+$/.test(val)
   return isEmail || isPhone
 })
@@ -248,9 +347,10 @@ const closeWizard = () => {
 }
 
 const resetWizard = () => {
-  currentStep.value = 0 // Back to intro
+  currentStep.value = 1 // Back to selection step
   currentFlow.value = null
   customTime.value = ''
+  customLocation.value = ''
   isSuccess.value = false
   formData.value = {
     type: '',
@@ -268,8 +368,16 @@ const getOptions = () => {
     if (currentFlow.value === 'C') return ['WhatsApp', 'E-mail', 'SMS', 'Instagram']
   }
   if (currentStep.value === 3) {
-    if (currentFlow.value === 'A') return ['Pondelok', 'Utorok', 'Streda', 'Štvrtok', 'Piatok', 'Sobota', 'Nedeľa']
-    if (currentFlow.value === 'B') return ['Pondelok 15:00 - 15:30', 'Pondelok 16:00 - 16:30', 'Pondelok 16:30 - 17:00', 'Utorok 16:00 - 16:30', 'Utorok 16:30 - 17:00', 'Utorok 17:00 - 17:30', 'Utorok 17:30 - 18:00', 'Utorok 18:00 - 18:30', 'Utorok 18:30 - 19:00', 'Streda 16:00 - 16:30', 'Streda 16:30 - 17:00', 'Streda 17:00 - 17:30', 'Streda 17:30 - 18:00', 'Streda 18:00 - 18:30', 'Streda 18:30 - 19:00', 'Štvrtok 16:00 - 16:30', 'Štvrtok 16:30 - 17:00', 'Štvrtok 17:00 - 17:30', 'Štvrtok 17:30 - 18:00', 'Štvrtok 18:00 - 18:30', 'Štvrtok 18:30 - 19:00', 'Piatok 16:00 - 16:30', 'Piatok 16:30 - 17:00', 'Piatok 17:00 - 17:30', 'Piatok 17:30 - 18:00', 'Piatok 18:00 - 18:30', 'Piatok 18:30 - 19:00']
+    if (currentFlow.value === 'A') return [
+      'Pondelok Doobeda', 'Pondelok Poobede',
+      'Utorok Doobeda', 'Utorok Poobede',
+      'Streda Doobeda', 'Streda Poobede',
+      'Štvrtok Doobeda', 'Štvrtok Poobede',
+      'Piatok Doobeda', 'Piatok Poobede',
+      'Sobota Doobeda', 'Sobota Poobede',
+      'Nedeľa Doobeda', 'Nedeľa Poobede'
+    ]
+    if (currentFlow.value === 'B') return ['Pondelok 15:00 - 15:30', 'Pondelok 16:00 - 16:30', 'Pondelok 16:30 - 17:00', 'Pondelok 19:00 - 19:30', 'Pondelok 20:00 - 20:30', 'Utorok 16:00 - 16:30', 'Utorok 16:30 - 17:00', 'Utorok 17:00 - 17:30', 'Utorok 17:30 - 18:00', 'Utorok 18:00 - 18:30', 'Utorok 18:30 - 19:00', 'Utorok 19:00 - 19:30', 'Utorok 19:30 - 20:00', 'Streda 14:30 - 15:00', 'Streda 15:00 - 15:30', 'Streda 15:30 - 16:00', 'Streda 16:00 - 16:30', 'Streda 16:30 - 17:00', 'Streda 17:00 - 17:30', 'Streda 17:30 - 18:00', 'Streda 18:00 - 18:30', 'Streda 18:30 - 19:00', 'Streda 19:00 - 19:30', 'Streda 19:30 - 20:00', 'Štvrtok 16:00 - 16:30', 'Štvrtok 16:30 - 17:00', 'Štvrtok 17:00 - 17:30', 'Štvrtok 17:30 - 18:00', 'Štvrtok 18:00 - 18:30', 'Štvrtok 18:30 - 19:00', 'Štvrtok 19:00 - 19:30', 'Štvrtok 19:30 - 20:00', 'Piatok 13:30 - 14:00', 'Piatok 14:00 - 14:30', 'Piatok 14:30 - 15:00', 'Piatok 15:00 - 15:30', 'Piatok 15:30 - 16:00', 'Piatok 16:00 - 16:30', 'Piatok 16:30 - 17:00', 'Piatok 17:00 - 17:30', 'Piatok 17:30 - 18:00', 'Piatok 18:00 - 18:30', 'Piatok 18:30 - 19:00', 'Piatok 19:00 - 19:30', 'Piatok 19:30 - 20:00', 'Sobota Navrhnite čas', 'Nedeľa Navrhnite čas']
   }
   return []
 }
@@ -321,36 +429,55 @@ const submit = async () => {
   trackStep('wizard_submit_started', formData.value)
   
   try {
-    // Expected to send to Cloudflare Pages endpoint or equivalent
-    await fetch('/api/contact', {
+    // 1. Pripravíme dáta do formátu, ktorý Web3Forms očakáva (a ktorý bude v maily pekne vyzerať)
+    const payload = {
+      access_key: "4f619a44-8441-40a3-9538-b59aa077455f", // Tvoj Web3Forms kľúč
+      subject: `Nová požiadavka z webu: ${formData.value.type}`, // Predmet e-mailu
+      from_name: "Web Portfólio - Kontakt",
+      
+      // Samotné dáta z formulára (Pomenuj si kľúče tak, ako ich chceš vidieť v e-maile)
+      Typ_komunikácie: formData.value.type,
+      Preferované_miesto_alebo_platforma: formData.value.location || 'Nezadané',
+      Preferovaný_čas: formData.value.timePreference || 'Nezadané',
+      Text_požiadavky: formData.value.request || 'Nezadané',
+      Kontakt_na_klienta: formData.value.contact || 'Nezadané'
+    };
+
+    // 2. Odošleme to cez fetch na ich API
+    const response = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       },
-      body: JSON.stringify(formData.value)
-    }).catch(err => {
-        // Silently catch fetch errs for pure frontend demo if API is missing
-        console.warn('API error caught, proceeding for UX', err)
-    })
-    
-    // Simulate network delay for UX
-    await new Promise(resolve => setTimeout(resolve, 800))
-    
-    isSuccess.value = true
-    trackStep('wizard_submit_success')
-    
-    // Auto close
-    if (currentFlow.value === 'A' || currentFlow.value === 'B') {
-      setTimeout(() => closeWizard(), 4000)
+      body: JSON.stringify(payload)
+    });
+
+    const result = await response.json();
+
+    // 3. Skontrolujeme, či to prešlo
+    if (response.ok) {
+      isSuccess.value = true;
+      trackStep('wizard_submit_success');
+      
+      // Auto close po 6 sekundách pre plynulý zážitok
+      if (currentFlow.value === 'A' || currentFlow.value === 'B') {
+        setTimeout(() => closeWizard(), 6000);
+      }
+    } else {
+      // Ak API vráti chybu (napr. zlý kľúč)
+      console.error('Web3Forms Error:', result);
+      throw new Error(result.message || 'Chyba zo strany Web3Forms');
     }
+
   } catch (error) {
     console.error('Submit error', error)
     trackStep('wizard_submit_error', { error: error.message || 'unknown' })
-    // In production we would show an error toast, but here we proceed to success or back UX-wise
-    isSuccess.value = true
-    setTimeout(() => closeWizard(), 4000)
+    
+    // Fallback pre užívateľa, ak by zlyhalo pripojenie
+    alert("Ospravedlňujem sa, formulár sa nepodarilo odoslať. Skúste mi prosím napísať priamo na e-mail alebo Instagram.");
   } finally {
-    isSubmitting.value = false
+    isSubmitting.value = false;
   }
 }
 
