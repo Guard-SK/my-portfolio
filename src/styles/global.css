@@ -171,87 +171,95 @@ html {
 
 /* Custom Cursor Styles */
 @media (any-hover: hover) {
-    body {
-        cursor: none;
-    }
-
-    a,
-    button,
-    [role="button"],
-    .btn-primary,
-    .btn-secondary {
-        cursor: none;
+    *,
+    *::before,
+    *::after {
+        cursor: none !important;
     }
 }
 
 .custom-cursor {
-    width: 24px;
-    height: 24px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-emerald-500);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 10001;
+    transform: translate3d(-50%, -50%, 0);
+    transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+    will-change: transform;
+}
+
+.custom-cursor-ring {
+    width: 26px;
+    height: 26px;
+    border: 1.5px solid var(--color-emerald-500);
+    border-radius: 50%;
     position: fixed;
     top: 0;
     left: 0;
     pointer-events: none;
     z-index: 10000;
-    mix-blend-mode: difference;
     transform: translate3d(-50%, -50%, 0);
+    transition: width 0.35s cubic-bezier(0.23, 1, 0.32, 1), 
+                height 0.35s cubic-bezier(0.23, 1, 0.32, 1), 
+                border-color 0.3s ease, 
+                background-color 0.3s ease,
+                opacity 0.3s ease;
     will-change: transform;
 }
 
-.cursor-dot-inner {
-    width: 6px;
-    height: 6px;
-    background-color: var(--color-emerald-500);
-    border-radius: 50%;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-}
-
-.cursor-arrow {
-    position: absolute;
-    color: var(--color-emerald-400);
-    opacity: 0;
-    transform: rotate(-90deg) scale(0.3);
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
-}
-
-.custom-cursor-halo {
-    width: 32px;
-    height: 32px;
-    border: 1px solid rgba(16, 185, 129, 0.4);
-    border-radius: 50%;
+/* Cursor Arrow Icon (Independent) */
+.cursor-arrow-container {
     position: fixed;
     top: 0;
     left: 0;
     pointer-events: none;
-    z-index: 9999;
-    transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+    z-index: 10002;
     transform: translate3d(-50%, -50%, 0);
+    opacity: 0;
+    transition: opacity 0.2s ease;
     will-change: transform;
 }
 
+.cursor-arrow {
+    color: var(--color-obsidian);
+    transform: rotate(-90deg) scale(0);
+    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
 /* Reactive states for cursor */
-.cursor-active .cursor-dot-inner {
-    transform: scale(0);
+.cursor-active .custom-cursor {
+    width: 40px;
+    height: 40px;
     opacity: 0;
+    background-color: transparent;
+}
+
+.cursor-active .custom-cursor-ring {
+    width: 55px;
+    height: 55px;
+    background-color: var(--color-emerald-500);
+    border-color: transparent;
+}
+
+.cursor-active .cursor-arrow-container {
+    opacity: 1;
 }
 
 .cursor-active .cursor-arrow {
-    opacity: 1;
     transform: rotate(0deg) scale(1.1);
-}
-
-.cursor-active .custom-cursor-halo {
-    width: 50px;
-    height: 50px;
-    background-color: rgba(16, 185, 129, 0.1);
-    border-color: rgba(16, 185, 129, 0.8);
 }
 
 /* Hide cursor elements on mobile */
 @media (max-width: 1024px) {
-
     .custom-cursor,
-    .custom-cursor-halo {
-        display: none;
+    .custom-cursor-ring,
+    .cursor-arrow-container {
+        display: none !important;
     }
 
     body {
