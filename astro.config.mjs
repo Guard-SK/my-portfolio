@@ -10,5 +10,9 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  integrations: [vue()]
+  integrations: [vue()],
+
+  build: {
+    inlineStylesheets: 'always'
+  }
 });
